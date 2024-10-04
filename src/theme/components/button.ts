@@ -4,36 +4,40 @@ export const ButtonStyles = defineStyleConfig({
   baseStyle: {
     fontWeight: 'bold',
     textTransform: 'uppercase',
-    borderRadius: 'base',
-    background:"pink"
+    borderRadius: "10px",
   },
   sizes: {
     sm: {
-      fontSize: 'sm',
-      px: 4,
-      py: 3,
+      fontSize: '10px',
+      width: "200px",
+      height: "41px",  // Set height in pixels
+      paddingX: 4,     // Use specific padding instead of `p` shorthand
+      paddingY: 2,     // Adjust padding to avoid conflict with height
+      borderRadius: "5px",
     },
     md: {
       fontSize: 'md',
-      px: 6,
-      py: 4,
+      width: "212px",
+      height: "51px",   // Define height for md size
+      paddingX: 6,
+      paddingY: 4,
+    },
+    lg: {
+      fontSize: 'lg',
+      width: "212px",
+      paddingX: 6,
+      paddingY: 4,
     },
   },
-
   variants: {
-    outline: {
-      border: '10px solid',
-      borderColor: 'pink',
-      color: 'purple.500',
+    auth: {
+      bg: "#3C5DD2",
+      fontWeight: "700",
+      color: "white",
     },
     solid: {
-      // bg: 'purple.500',
+      bg: 'purple.500',
       color: 'white',
     },
   },
-
-  defaultProps: {
-    size: 'md',
-    variant: 'outline',
-  },
-})
+});

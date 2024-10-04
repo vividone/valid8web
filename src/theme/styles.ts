@@ -3,8 +3,7 @@ import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 export const globalStyles = {
   colors: {
     brand: {
-      100: "#E9E3FF",
-      200: "",
+      100: "#3C5DD2",
       300: "#422AFB",
       400: "#7551FF",
       500: "#3C5DD2", 
@@ -64,7 +63,6 @@ export const globalStyles = {
 
     },
     green: {
-      50: "#E7E6F2",
       100: "#00DCB1",
       150: "#C4C4C4",
       200: "#E3FFFA",
@@ -78,7 +76,7 @@ export const globalStyles = {
     },
     gray: {
       50: "#A6AAAC",
-      100: "#FAFCFE",
+      100: "#E7E6F2",
       200: "#6C7278",
       300: "#A8A8A8",
       400: "#78828A",
