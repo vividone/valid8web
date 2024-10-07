@@ -14,7 +14,7 @@ export const adminMenue = [
     },
     {
         Name: "Students",
-        route: "/admin/Students",
+        route: "/admin/students",
         Icon: StudentIcon,
     },
     {
@@ -24,7 +24,7 @@ export const adminMenue = [
     },
     {
         Name: "Billings",
-        route: "/admin/Billings",
+        route: "/admin/billings",
         Icon:  BillersIcon,
     },
     {

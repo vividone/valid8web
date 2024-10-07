@@ -4,7 +4,13 @@ import { globalStyles } from "./styles";
 import { inputStyles } from "./components/input";
 import { CheckboxStyles } from "./components/checkbox";
 
+const config = {
+  initialColorMode: "light", 
+  useSystemColorMode: false, 
+};
+
 export const theme = extendTheme({
+  config,
   globalStyles,
   components: {
     Button: ButtonStyles,

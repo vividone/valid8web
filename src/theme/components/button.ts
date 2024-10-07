@@ -3,22 +3,25 @@ import { defineStyleConfig } from '@chakra-ui/react'
 export const ButtonStyles = defineStyleConfig({
   baseStyle: {
     fontWeight: 'bold',
+    fontFamily: "Nunito",
     textTransform: 'uppercase',
     borderRadius: "10px",
+    bg: "#3C5DD2",
+
   },
   sizes: {
     sm: {
       fontSize: '10px',
       width: "200px",
-      height: "41px",  // Set height in pixels
-      paddingX: 4,     // Use specific padding instead of `p` shorthand
-      paddingY: 2,     // Adjust padding to avoid conflict with height
+      height: "41px",
+      paddingX: 4,
+      paddingY: 2,
       borderRadius: "5px",
     },
     md: {
       fontSize: 'md',
       width: "212px",
-      height: "51px",   // Define height for md size
+      height: "51px",
       paddingX: 6,
       paddingY: 4,
     },
@@ -36,8 +39,13 @@ export const ButtonStyles = defineStyleConfig({
       color: "white",
     },
     solid: {
-      bg: 'purple.500',
-      color: 'white',
+      bg: "#3C5DD2",
+      fontWeight: "700",
+      color: "white",
+      _hover: {
+        bg: "#3C5DD2",
+        scale:"1.5"
+      }
     },
   },
 });

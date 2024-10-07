@@ -1,6 +1,7 @@
 
 
 import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
+import { color } from "framer-motion";
 
 export const inputStyles = {
   components: {
@@ -9,7 +10,8 @@ export const inputStyles = {
         field: {
           fontWeight: 400,
           borderRadius: "8px",
-          borderColor: ""
+          border: "2px solid #E7E7E7",
+          color:"blackAlpha.900"
         },
       },
       sizes: {

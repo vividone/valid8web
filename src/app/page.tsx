@@ -43,12 +43,15 @@ export default function Home() {
             paddingX={{ base: 4, sm: 4, md: 10 }}
             width={{ base: "80%", sm: "80%", md: "70%", lg: "628px" }}
             // height={{ base: "80%", sm: "1250px", md: "480px", lg: "480px" }}
-            
           >
             <Stack gap={4}>
               {/* Email Input */}
               <FormControl>
-                <FormLabel fontSize={{ base: "20px", sm: "18px", md: "20px" }}>
+                <FormLabel
+                  fontFamily={"Kanit,sans-serif"}
+                  fontWeight={400}
+                  fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+                >
                   Email Address
                 </FormLabel>
                 <Input
@@ -60,7 +63,11 @@ export default function Home() {
 
               {/* Password Input */}
               <FormControl>
-                <FormLabel fontSize={{ base: "20px", sm: "18px", md: "20px" }}>
+                <FormLabel
+                  fontFamily={"Kanit,sans-serif"}
+                  fontWeight={400}
+                  fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+                >
                   Password
                 </FormLabel>
                 <Input
@@ -73,14 +80,12 @@ export default function Home() {
               {/* Remember Me Section */}
               <Flex alignItems="center" gap={3}>
                 <Checkbox variant="auth" />
-                <Text>Remember me</Text>
+                <Text fontFamily={"Nunito,sans-serif"} fontWeight={500}>Remember me</Text>
               </Flex>
 
               {/* Login Button */}
-              <Center marginTop={12} width="full" mb={{sm:5,md:0}}>
-                <Button variant="auth" >
-                  LOGIN
-                </Button>
+              <Center marginTop={12} width="full" mb={{ sm: 5, md: 0 }}>
+                <Button variant="auth">LOGIN</Button>
               </Center>
             </Stack>
           </Box>
