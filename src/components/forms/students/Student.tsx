@@ -10,7 +10,14 @@ import {
   Center,
 } from "@chakra-ui/react";
 
-const StudentForm = ({ setFlow }) => {
+const StudentForm = ({
+  flow,
+  setFlow,
+}: {
+  flow: boolean;
+  setFlow: (flow: number) => void;
+}) => {
+  console.log("student form =>", flow);
   return (
     <Box
       py={4}
