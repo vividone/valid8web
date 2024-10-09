@@ -1,3 +1,4 @@
+import React, { SetStateAction, useRef } from "react";
 import NextLink from "next/link";
 import {
   CloseButton,
@@ -12,10 +13,9 @@ import {
   useOutsideClick,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import baseUrl from "@/constants/baseUrl";
 import { usePathname } from "next/navigation";
 import { adminMenue } from "@/utils/navroutes/routes";
-import React, { SetStateAction, useRef } from "react";
+import baseUrl from "@/constants/baseUrl";
 
 interface SideBarProps {
   open: boolean;
@@ -81,8 +81,6 @@ const SideBarNavLinks = ({
 const SideBar = ({ open, setOpen }: SideBarProps) => {
   const path = usePathname();
   const sideBarRef = useRef<HTMLDivElement>(null);
-
-  // const titleGreyText = useColorModeValue("brandgrey.100", "black");
   const BlackText = useColorModeValue("brandgrey.100", "black");
 
   useOutsideClick({
@@ -95,7 +93,7 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
       h="100%"
       top={0}
       left={0}
-      zIndex={{ sm: 100}}
+      zIndex={{ base: 100, md: "auto" }}
       bg="white"
       boxShadow={"xl"}
       color="black"
@@ -103,8 +101,8 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
       position="fixed"
       p={{ base: 4, md: 0 }}
       flexDirection="column"
-      w={{ base: "210px", md: "250px" }}
-      fontFamily={"Nunito,sans-serif"}
+      w={{ base: "50%", md: "240px" }}
+      fontFamily={"Nunito, sans-serif"}
       transform={{
         base: open ? "translateX(0)" : "translateX(-100%)",
         md: "translateX(0)",
@@ -135,7 +133,7 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
       {/* Menu Sections */}
       <SideBarNavLinks items={adminMenue} path={path} />
 
-      {/* title */}
+      {/* Footer Section */}
       <Box fontSize={{ sm: "18px", md: "20px" }} p={4}>
         <Stack lineHeight={"20px"}>
           <Box color={BlackText}>Superadmin</Box>
@@ -146,13 +144,12 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
         <HStack
           fontSize={{ base: "16px", sm: "14px", md: "16px" }}
           color={"#8C8B92"}
-          // color={titleGreyText}
           justify={"space-between"}
           mt={8}
         >
-          <Link href={""}>Privacy</Link>
-          <Link href={""}>Terms</Link>
-          <Link href={""}>Log out</Link>
+          <Link href="">Privacy</Link>
+          <Link href="">Terms</Link>
+          <Link href="">Log out</Link>
         </HStack>
       </Box>
     </Flex>

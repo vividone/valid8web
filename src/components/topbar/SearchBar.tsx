@@ -69,10 +69,15 @@ const SearchBar = ({ open, setOpen }: any) => {
           <Flex
             mt={{ sm: 4, md: 0 }}
             gap={{ sm: 4, md: 2 }}
-            justify={{ sm: "flex-start", md: "space-between" }}
+            justify={{ sm: "center", md: "space-between" }}
             fontSize={{ base: "16px", sm: "14px", md: "16px" }}
           >
-            <Container gap={1} height={"48px"} alignItems={"center"}>
+            <Container
+              gap={1}
+              height={"48px"}
+              alignItems={"center"}
+              
+            >
               <Icon
                 mr={2}
                 w="17px"
@@ -108,6 +113,7 @@ export const Container = ({ children, ...props }: any) => {
       border={"1px solid"}
       borderColor={"#E7E7E7"}
       borderRadius={"md"}
+      flexWrap={"wrap"}
       {...props}
     >
       {children}
