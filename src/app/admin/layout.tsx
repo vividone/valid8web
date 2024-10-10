@@ -8,7 +8,7 @@ const Layout = ({ children }: any) => {
 
   return (
     <Flex w="full" h="full" bg={"transparent "} position={"relative"}>
-      <Box minW={{ base: "100%", sm: "0px", md: "240px" }}>
+      <Box minW={{ base: "100%", sm: "0px", md: "260px" }}>
         <SideBar open={open} setOpen={setOpen} />
       </Box>
       <Box flex={{ md: 3 }} p={4} px={8} width={{ sm: "100%", md: "80%" }}>

@@ -9,6 +9,7 @@ import {
   Box,
   HStack,
   Stack,
+  Image,
   useColorModeValue,
   useOutsideClick,
 } from "@chakra-ui/react";
@@ -101,7 +102,7 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
       position="fixed"
       p={{ base: 4, md: 0 }}
       flexDirection="column"
-      w={{ base: "50%", md: "240px" }}
+      w={{ base: "60%", md: "260px" }}
       fontFamily={"Nunito, sans-serif"}
       transform={{
         base: open ? "translateX(0)" : "translateX(-100%)",
@@ -135,12 +136,38 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
 
       {/* Footer Section */}
       <Box fontSize={{ sm: "18px", md: "20px" }} p={4}>
-        <Stack lineHeight={"20px"}>
-          <Box color={BlackText}>Superadmin</Box>
-          <Box as="p" color={"#8C8B92"}>
-            Zainab Babalola
-          </Box>
-        </Stack>
+        {false ? (
+          <Stack lineHeight={"20px"}>
+            <Box color={BlackText}>Superadmin</Box>
+            <Box as="p" color={"#8C8B92"}>
+              Zainab Babalola
+            </Box>
+          </Stack>
+        ) : (
+          <HStack>
+            <Box>
+              <Image
+                borderRadius={"full"}
+                alt="logo"
+                src="/images/sidebarLogo.png/"
+                width={{ md: "44px" }}
+                height={{ md: "44px" }}
+              />
+            </Box>
+            <Box>
+              <Box
+                as="h2"
+                fontWeight={600}
+                fontSize={{ base: "20px", sm: "16px", md: "18px" }}
+              >
+                Covenant University
+              </Box>
+              <Box as="p" color={"#8C8B92"} flex={1}>
+                Zainab Babalola
+              </Box>
+            </Box>
+          </HStack>
+        )}
         <HStack
           fontSize={{ base: "16px", sm: "14px", md: "16px" }}
           color={"#8C8B92"}
