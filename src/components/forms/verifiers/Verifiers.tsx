@@ -17,7 +17,7 @@ const VerifiersForm = ({
   flow,
   setFlow,
 }: {
-  flow: boolean;
+  flow: number;
   setFlow: (flow: number) => void;
 }) => {
   console.log("student form =>", flow);

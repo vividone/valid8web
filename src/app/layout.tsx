@@ -3,7 +3,7 @@ import "../styles/fonts.css";
 import "../styles/globals.css";
 import { theme } from "@/theme/theme";
 import { ChakraProvider } from "@chakra-ui/react";
-
+import "../styles/progress.css";
 // import type { Metadata } from "next";
 
 // export const metadata: Metadata = {

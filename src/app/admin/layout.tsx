@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import SideBar from "@/components/sidebar/sidebar";
 import { Flex, Box } from "@chakra-ui/react";
 import SearchBar from "@/components/topbar/SearchBar";
+
 const Layout = ({ children }: any) => {
   const [open, setOpen] = useState<boolean>(false);
 

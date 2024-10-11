@@ -10,11 +10,14 @@ import {
   Icon,
   HStack,
   Text,
+  VStack,
   TableContainer,
 } from "@chakra-ui/react";
 import { EyeIcon } from "../icons/icons";
 import { Container } from "../topbar/SearchBar";
-const DynamicStudentTable = () => {
+import { BsBox } from "react-icons/bs";
+
+const DynamicStudentTable = ({ data = undefined, Action }: any) => {
   const studentsData = [
     {
       Student: "Samuel Oyedele",
@@ -43,8 +46,8 @@ const DynamicStudentTable = () => {
   ];
 
   // Extract headers from the first object in the data array
-  const headers = studentsData.length > 0 ? Object.keys(studentsData[0]) : [];
-
+  const currData = data !== undefined ? data : studentsData;
+  const headers = currData.length > 0 ? Object.keys(currData[0]) : [];
   return (
     <Container boxShadow="xl" py={6} fontFamily={"Nunito"} w="full">
       <TableContainer w="full">
@@ -68,7 +71,7 @@ const DynamicStudentTable = () => {
           </Thead>
           <Tbody>
             {/* Dynamic rows */}
-            {studentsData.map((student, rowIndex) => (
+            {currData.map((student: any, rowIndex: number) => (
               <Tr key={rowIndex} height="70px">
                 {headers.map((header, colIndex) => (
                   <>
@@ -112,23 +115,62 @@ const DynamicStudentTable = () => {
                       <Td
                         key={colIndex}
                         fontSize="18px"
-                        fontWeight={500}
+                        fontWeight={600}
                         color={"#3C5DD2"}
                         fontFamily={"Nunito,sans-serif"}
                       >
                         <HStack gap={2} cursor={"pointer"}>
                           <Icon as={EyeIcon} />
-                          <Text fontSize={"16px"} fontWeight={600}>
+                          <Text
+                            fontSize={"16px"}
+                            fontWeight={600}
+                            onClick={() => Action()}
+                          >
                             VIEW
                           </Text>
                         </HStack>
+                      </Td>
+                    ) : header === "Result" ? (
+                      <Td
+                        key={colIndex}
+                        fontSize="18px"
+                        fontWeight={600}
+                        color={"blackAlpha.900"}
+                        fontFamily={"Nunito,sans-serif"}
+                      >
+                        {student[header] === "Valid" ? (
+                          <Box color={"#002AFF"}>{student[header]}</Box>
+                        ) : (
+                          <Box color={"#FF0000"}>{student[header]}</Box>
+                        )}
+                      </Td>
+                    ) : Array.isArray(student[header]) ? (
+                      <Td
+                        key={colIndex}
+                        fontSize="18px"
+                        fontWeight={600}
+                        //   color={"#000000"}
+                        color={"blackAlpha.900"}
+                        fontFamily={"Nunito,sans-serif"}
+                      >
+                        <Box>
+                          <Box>{student[header][0]}</Box>
+                          <Box
+                            color={"#8C8B92"}
+                            fontSize={"16px"}
+                            fontWeight={400}
+                          >
+                            {student[header][1]}
+                          </Box>
+                        </Box>
                       </Td>
                     ) : (
                       <Td
                         key={colIndex}
                         fontSize="18px"
-                        fontWeight={500}
+                        fontWeight={600}
                         //   color={"#000000"}
+
                         color={"blackAlpha.900"}
                         fontFamily={"Nunito,sans-serif"}
                       >
