@@ -95,9 +95,11 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
 export default SearchBar;
 
+// dfg to move !!
+
 interface ContainerProps {
   children: ReactNode;
-  [x: string]: any;
+  [x: string]: string | any;
 }
 
 export const Container: React.FC<ContainerProps> = ({ children, ...props }) => {

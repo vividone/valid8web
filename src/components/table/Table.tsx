@@ -20,11 +20,20 @@ type StudentData = {
   Department: string;
   Status: "Active" | "Inactive";
   Action: string;
-  [key: string]: any; 
+  [key: string]: string | string[] | undefined;
 };
 
+type LogsDataType = {
+  Verifier: string;
+  Details: string;
+  Result: "Valid" | "Invalid";
+  Timestamp: string[];
+  Action: string;
+};
+
+
 type DynamicStudentTableProps = {
-  data?: StudentData[];
+  data?: StudentData[] | LogsDataType | any; // Explicit type for array of StudentData
   Action?: (flow: number) => void;
 };
 
@@ -59,8 +68,8 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
     },
   ];
 
-  const currData = data !== undefined ? data : studentsData;
-  const headers = currData.length > 0 ? Object.keys(currData[0]) : [];
+  const currData:any = data ?? studentsData;
+  const headers:any = currData.length > 0 ? Object.keys(currData[0]) : [];
 
   return (
     <Container boxShadow="xl" py={6} fontFamily={"Nunito"} w="full">
@@ -68,7 +77,7 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
         <Table variant="simple" size="md">
           <Thead>
             <Tr>
-              {headers.map((header, index) => (
+              {headers.map((header:any, index:any) => (
                 <Th
                   key={index}
                   fontSize="20px"
@@ -82,10 +91,10 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
             </Tr>
           </Thead>
           <Tbody>
-            {currData.map((student, rowIndex) => (
+            {currData.map((student:any, rowIndex:any) => (
               <Tr key={rowIndex} height="70px">
-                {headers.map((header, colIndex) => (
-                  <>
+                {headers.map((header:any, colIndex:any) => (
+                  <React.Fragment key={colIndex}>
                     {header === "Status" ? (
                       student[header] === "Active" ? (
                         <Td
@@ -124,7 +133,6 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                       )
                     ) : header === "Action" ? (
                       <Td
-                        key={colIndex}
                         fontSize="18px"
                         fontWeight={500}
                         color={"#3C5DD2"}
@@ -143,7 +151,6 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                       </Td>
                     ) : header === "Result" ? (
                       <Td
-                        key={colIndex}
                         fontSize="18px"
                         fontWeight={500}
                         color={"blackAlpha.900"}
@@ -157,7 +164,6 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                       </Td>
                     ) : Array.isArray(student[header]) ? (
                       <Td
-                        key={colIndex}
                         fontSize="18px"
                         fontWeight={500}
                         color={"blackAlpha.900"}
@@ -176,7 +182,6 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                       </Td>
                     ) : (
                       <Td
-                        key={colIndex}
                         fontSize="18px"
                         fontWeight={500}
                         color={"blackAlpha.900"}
@@ -185,7 +190,7 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                         {student[header]}
                       </Td>
                     )}
-                  </>
+                  </React.Fragment>
                 ))}
               </Tr>
             ))}
