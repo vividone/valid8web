@@ -1,9 +1,14 @@
 "use client";
 import React from "react";
 import { Flex, Text, Box, CloseButton, Icon } from "@chakra-ui/react";
-import { Container } from "../topbar/SearchBar";
 
-const ModalsLayout = ({ children, flow, setOpen }: any) => {
+const ModalsLayout = ({
+  children,
+  flow,
+  setOpen,
+  counter = true,
+  title,
+}: any) => {
   return (
     <Box
       p={10}
@@ -24,18 +29,20 @@ const ModalsLayout = ({ children, flow, setOpen }: any) => {
       >
         <Box>
           <Text as="h3" fontWeight={"700"} fontSize={"24px"}>
-            Add Student
+            {title}
           </Text>
-          <Text as="span" fontSize={"16px"} textColor={"#8C8B92"}>
-            Step {flow} of 2
-          </Text>
+          {counter && (
+            <Text as="span" fontSize={"16px"} textColor={"#8C8B92"}>
+              Step {flow} of 2
+            </Text>
+          )}
         </Box>
 
         <Box>
           <Icon
             as={CloseButton}
             cursor="pointer"
-            onClick={() => setOpen((prev) => !prev)}
+            onClick={() => setOpen((prev: boolean) => !prev)}
           />
         </Box>
       </Flex>

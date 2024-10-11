@@ -44,7 +44,18 @@ export const ButtonStyles = defineStyleConfig({
       color: "white",
       _hover: {
         bg: "#3C5DD2",
-        scale:"1.5"
+        scale: "1.5"
+      }
+    },
+    ghost: {
+      px: 12,
+      bg: "#3C5DD233",
+      color: "#3C5DD2",
+      fontWeight: "700",
+      _hover: {
+        scale: "1.5",
+        bg: "#3C5DD2",
+        color: "white"
       }
     },
   },

@@ -4,23 +4,20 @@ import { Flex, Text, Box, Button } from "@chakra-ui/react";
 import Table from "@/components/table/Table";
 import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
-import StudentForm from "@/components/forms/students/Student";
-import QR from "@/components/forms/students/QR";
+import VerifiersForm from "@/components/forms/verifiers/Verifiers";
 
 // Data for InfoBox cards
 const infoBoxData = [
-  { id: "1", logo: "/images/dashboard/pseudo1.png", title: "Students", value: 10000 },
-  { id: "2", logo: "/images/dashboard/pseudo1.png", title: "Validations", value: 5000 },
-  { id: "3", logo: "/images/dashboard/pseudo3.png", title: "Verifiers", value: 500 },
+  { id: "1", logo: "/images/dashboard/pseudo1.png", title: "Verifiers", value: 10000 },
+  { id: "2", logo: "/images/dashboard/pseudo3.png", title: "Active", value: 5000 },
+  { id: "3", logo: "/images/dashboard/pseudo3.png", title: "Disabled", value: 50 },
 ];
 
-// Helper function to render modal content based on flow state
+
 const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
   switch (flow) {
     case 1:
-      return <StudentForm flow={flow} setFlow={setFlow} />;
-    case 2:
-      return <QR />;
+      return <VerifiersForm flow={flow} setFlow={setFlow} />;
     default:
       return null;
   }
@@ -46,7 +43,7 @@ const Students = () => {
       
       {/* Conditionally render modal */}
       {modalState.open && (
-        <ModalsLayout setOpen={handleCloseModal} flow={modalState.flow}>
+        <ModalsLayout setOpen={handleCloseModal} flow={modalState.flow} counter={false} title="Verifiers">
           {renderModalContent(modalState.flow, setFlow)} {/* Pass setFlow */}
         </ModalsLayout>
       )}
@@ -54,7 +51,7 @@ const Students = () => {
       <Box py={8}>
         {/* Header */}
         <Flex alignItems="center" justify="space-between" flexDirection={{ sm: "column", md: "row" }}>
-          <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>Dashboard</Text>
+          <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>Verifiers</Text>
           <Flex gap={4}>
             <Button size="md" onClick={() => handleOpenModal(1)}>ADD VERIFIER</Button>
             <Button size="md">BULK UPLOAD</Button>

@@ -53,8 +53,8 @@ const SearchBar = ({ open, setOpen }: any) => {
               pl={10}
               size="md"
               placeholder="Search here..."
-              w="80%"
               fontSize={{ base: "16px", md: "16px" }}
+              w={{ base: "80%", sm: "100%", md: "100%" }}
             />
           </InputGroup>
         </Flex>
