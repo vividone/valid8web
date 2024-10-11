@@ -10,7 +10,7 @@ const config = {
 };
 
 export const theme = extendTheme({
-  // config,
+  config,
   globalStyles,
   components: {
     Button: ButtonStyles,

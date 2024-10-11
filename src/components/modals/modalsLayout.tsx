@@ -1,6 +1,14 @@
 "use client";
-import React from "react";
+import React, { ReactNode } from "react";
 import { Flex, Text, Box, CloseButton, Icon } from "@chakra-ui/react";
+
+interface ModalsLayoutProps {
+  children: ReactNode;
+  flow: number;
+  setOpen: (open: boolean) => void;
+  counter?: boolean;
+  title?: string;
+}
 
 const ModalsLayout = ({
   children,
@@ -8,7 +16,7 @@ const ModalsLayout = ({
   setOpen,
   counter = true,
   title,
-}: any) => {
+}: ModalsLayoutProps) => {
   return (
     <Box
       p={10}
@@ -42,7 +50,7 @@ const ModalsLayout = ({
           <Icon
             as={CloseButton}
             cursor="pointer"
-            onClick={() => setOpen((prev: boolean) => !prev)}
+            onClick={() => setOpen(false)}
           />
         </Box>
       </Flex>

@@ -1,7 +1,7 @@
 
 
 import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
-import { color } from "framer-motion";
+
 
 export const inputStyles = {
   components: {

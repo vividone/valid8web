@@ -10,15 +10,29 @@ import {
   Icon,
   HStack,
   Text,
-  VStack,
   TableContainer,
 } from "@chakra-ui/react";
 import { EyeIcon } from "../icons/icons";
 import { Container } from "../topbar/SearchBar";
-import { BsBox } from "react-icons/bs";
 
-const DynamicStudentTable = ({ data = undefined, Action }: any) => {
-  const studentsData = [
+type StudentData = {
+  Student: string;
+  Department: string;
+  Status: "Active" | "Inactive";
+  Action: string;
+  [key: string]: any; 
+};
+
+type DynamicStudentTableProps = {
+  data?: StudentData[];
+  Action?: (flow: number) => void;
+};
+
+const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
+  data = undefined,
+  Action,
+}) => {
+  const studentsData: StudentData[] = [
     {
       Student: "Samuel Oyedele",
       Department: "Law",
@@ -45,22 +59,20 @@ const DynamicStudentTable = ({ data = undefined, Action }: any) => {
     },
   ];
 
-  // Extract headers from the first object in the data array
   const currData = data !== undefined ? data : studentsData;
   const headers = currData.length > 0 ? Object.keys(currData[0]) : [];
+
   return (
     <Container boxShadow="xl" py={6} fontFamily={"Nunito"} w="full">
       <TableContainer w="full">
         <Table variant="simple" size="md">
           <Thead>
             <Tr>
-              {/* Dynamic headers */}
               {headers.map((header, index) => (
                 <Th
                   key={index}
                   fontSize="20px"
                   fontWeight={800}
-                  //   color={"#000000"}
                   color={"blackAlpha.900"}
                   fontFamily={"Nunito,sans-serif"}
                 >
@@ -70,15 +82,14 @@ const DynamicStudentTable = ({ data = undefined, Action }: any) => {
             </Tr>
           </Thead>
           <Tbody>
-            {/* Dynamic rows */}
-            {currData.map((student: any, rowIndex: number) => (
+            {currData.map((student, rowIndex) => (
               <Tr key={rowIndex} height="70px">
                 {headers.map((header, colIndex) => (
                   <>
                     {header === "Status" ? (
                       student[header] === "Active" ? (
                         <Td
-                          fontWeight={600}
+                          fontWeight={500}
                           fontSize={"16px"}
                           textColor={"#7000FA"}
                         >
@@ -95,7 +106,7 @@ const DynamicStudentTable = ({ data = undefined, Action }: any) => {
                         </Td>
                       ) : (
                         <Td
-                          fontWeight={600}
+                          fontWeight={500}
                           fontSize={"16px"}
                           textColor={"#FF0000"}
                         >
@@ -115,7 +126,7 @@ const DynamicStudentTable = ({ data = undefined, Action }: any) => {
                       <Td
                         key={colIndex}
                         fontSize="18px"
-                        fontWeight={600}
+                        fontWeight={500}
                         color={"#3C5DD2"}
                         fontFamily={"Nunito,sans-serif"}
                       >
@@ -123,8 +134,8 @@ const DynamicStudentTable = ({ data = undefined, Action }: any) => {
                           <Icon as={EyeIcon} />
                           <Text
                             fontSize={"16px"}
-                            fontWeight={600}
-                            onClick={() => Action()}
+                            fontWeight={500}
+                            onClick={() => Action && Action(1)}
                           >
                             VIEW
                           </Text>
@@ -134,7 +145,7 @@ const DynamicStudentTable = ({ data = undefined, Action }: any) => {
                       <Td
                         key={colIndex}
                         fontSize="18px"
-                        fontWeight={600}
+                        fontWeight={500}
                         color={"blackAlpha.900"}
                         fontFamily={"Nunito,sans-serif"}
                       >
@@ -148,8 +159,7 @@ const DynamicStudentTable = ({ data = undefined, Action }: any) => {
                       <Td
                         key={colIndex}
                         fontSize="18px"
-                        fontWeight={600}
-                        //   color={"#000000"}
+                        fontWeight={500}
                         color={"blackAlpha.900"}
                         fontFamily={"Nunito,sans-serif"}
                       >
@@ -168,9 +178,7 @@ const DynamicStudentTable = ({ data = undefined, Action }: any) => {
                       <Td
                         key={colIndex}
                         fontSize="18px"
-                        fontWeight={600}
-                        //   color={"#000000"}
-
+                        fontWeight={500}
                         color={"blackAlpha.900"}
                         fontFamily={"Nunito,sans-serif"}
                       >

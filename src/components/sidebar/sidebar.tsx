@@ -135,7 +135,7 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
       <SideBarNavLinks items={adminMenue} path={path} />
 
       {/* Footer Section */}
-      <Box fontSize={{ sm: "18px", md: "20px" }} p={4}>
+      <Box fontSize={{ sm: "18px", md: "20px" }} p={4} mt={"auto"}>
         {false ? (
           <Stack lineHeight={"20px"}>
             <Box color={BlackText}>Superadmin</Box>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import {
   Flex,
   Icon,
@@ -12,7 +12,15 @@ import {
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FilterIcon, SearchIcon, CalendarIcon } from "../icons/icons";
 
-const SearchBar = ({ open, setOpen }: any) => {
+interface SearchBarProps {
+  setOpen: (open: boolean) => void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({
+  setOpen,
+}: {
+  setOpen: (open: boolean) => void;
+}) => {
   const textColor = useColorModeValue("#8C8B92", "black.100");
 
   return (
@@ -40,7 +48,7 @@ const SearchBar = ({ open, setOpen }: any) => {
             color="inherit"
             cursor="pointer"
             as={RxHamburgerMenu}
-            onClick={() => setOpen((curr: boolean) => !curr)}
+            onClick={() => setOpen(true)}
             display={{ base: "block", md: "none" }}
           />
 
@@ -54,7 +62,7 @@ const SearchBar = ({ open, setOpen }: any) => {
               size="md"
               placeholder="Search here..."
               fontSize={{ base: "16px", md: "16px" }}
-              w={{ base: "80%", sm: "100%", md: "100%" }}
+              w={{ base: "80%", sm: "100%", md: "75%" }}
             />
           </InputGroup>
         </Flex>
@@ -66,7 +74,7 @@ const SearchBar = ({ open, setOpen }: any) => {
           alignItems="center"
           justify={{ base: "center", md: "flex-end" }}
           flex={1.1}
-          display={{ base: "none", md: "flex" }} // Hide on small screens
+          display={{ base: "none", md: "flex" }}
         >
           {/* Date Range */}
           <Container gap={1} height="48px" alignItems="center">
@@ -87,7 +95,12 @@ const SearchBar = ({ open, setOpen }: any) => {
 
 export default SearchBar;
 
-export const Container = ({ children, ...props }: any) => {
+interface ContainerProps {
+  children: ReactNode;
+  [x: string]: any;
+}
+
+export const Container: React.FC<ContainerProps> = ({ children, ...props }) => {
   return (
     <Flex
       py={3}

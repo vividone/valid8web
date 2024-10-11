@@ -15,6 +15,7 @@ import {
 export default function Home() {
   return (
     <Center width={{ base: "100%", md: "full" }} height="100vh">
+
       {/* Main Stack */}
       <Stack
         width="100%"
