@@ -4,8 +4,7 @@ import { Flex, Text, Box } from "@chakra-ui/react";
 import Table from "@/components/table/Table";
 import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
-import StudentForm from "@/components/forms/students/Student";
-import QR from "@/components/forms/students/QR";
+import LogForm from "@/components/forms/log/log";
 
 // Data for InfoBox cards
 const infoBoxData = [
@@ -29,13 +28,10 @@ const infoBoxData = [
   },
 ];
 
-// Helper function to render modal content based on flow state
 const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
   switch (flow) {
     case 1:
-      return <StudentForm flow={flow} setFlow={setFlow} />;
-    case 2:
-      return <QR />;
+      return <LogForm flow={flow} setFlow={setFlow} />;
     default:
       return null;
   }
@@ -92,11 +88,23 @@ const Logs = () => {
       {/* Conditionally render modal */}
       {modalState.open && (
         <ModalsLayout
-          setOpen={handleCloseModal}
+          mt={6}
+          pt={6}
+          boxShadow="none"
+          boxStyles={true}
+          borderRadius="md"
+          formBoxStyles={false}
+          padding={2}
+          bg={"white"}
+          width={"85%"}
+          border={"none"}
+          Mainpadding={"none"}
+          counter={false}
           flow={modalState.flow}
-          // bg={"none"}
+          setOpen={handleCloseModal}
+          title="Samuel Oyedele"
         >
-          {renderModalContent(modalState.flow, setFlow)} {/* Pass setFlow */}
+          {renderModalContent(modalState.flow, setFlow)}
         </ModalsLayout>
       )}
 

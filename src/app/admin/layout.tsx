@@ -1,19 +1,18 @@
 "use client";
-import React, { useState ,ReactNode} from "react";
+import React, { useState, ReactNode } from "react";
 import SideBar from "@/components/sidebar/sidebar";
 import { Flex, Box } from "@chakra-ui/react";
 import SearchBar from "@/components/topbar/SearchBar";
 
-
 interface LayoutProps {
-  children: ReactNode; 
+  children: ReactNode;
 }
 
-const Layout = ({ children }:LayoutProps) => {
+const Layout = ({ children }: LayoutProps) => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <Flex w="full" h="full" bg={"transparent "} position={"relative"}>
+    <Flex w="full" h="full" bg={"transparent "} position={"relative"} >
       <Box minW={{ base: "100%", sm: "0px", md: "260px" }}>
         <SideBar open={open} setOpen={setOpen} />
       </Box>

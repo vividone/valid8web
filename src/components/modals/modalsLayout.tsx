@@ -8,7 +8,24 @@ interface ModalsLayoutProps {
   setOpen: (open: boolean) => void;
   counter?: boolean;
   title?: string;
+  padding?: number;
+  Mainpadding?: string;
+  boxShadow?: string;
+  borderRadius?: any;
+  mt?: number;
+  pt?: number;
+  boxStyles?: boolean;
+  formBoxStyles?: boolean;
+  bg?: string;
+  width?: string;
+  border?: string;
 }
+
+const defaultBoxStyles = {
+  borderRadius: "md",
+  border: "1px solid",
+  borderColor: "#E7E7E7",
+};
 
 const ModalsLayout = ({
   children,
@@ -16,31 +33,44 @@ const ModalsLayout = ({
   setOpen,
   counter = true,
   title,
+  Mainpadding,
+  borderRadius = "md",
+  boxShadow = "xl",
+  pt,
+  mt,
+  boxStyles = false,
+  formBoxStyles = true,
+  ...props
 }: ModalsLayoutProps) => {
   return (
     <Box
-      p={10}
+      mt={mt}
       top={0}
       left={0}
       zIndex={100}
-      minW={"100%"}
-      minH={"100%"}
-      bg={"whitesmoke"}
-      position={"absolute"}
-      fontStyle={"Nunito"}
+      minW="100%"
+      minH="100%"
+      bg="white"
+      borderRadius={borderRadius}
+      position="absolute"
+      fontStyle="Nunito"
+      p={Mainpadding || { base: 8, sm: 2, md: 10 }}
+      sx={boxStyles ? defaultBoxStyles : undefined}
+      boxShadow={boxShadow}
     >
       <Flex
-        mx={"auto"}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-        w={{ base: "40%", sm: "80%", md: "75%" }}
+        pt={pt}
+        mx="auto"
+        alignItems="center"
+        justifyContent="space-between"
+        w={{ base: "40%", sm: "90%", md: "80%" }}
       >
         <Box>
-          <Text as="h3" fontWeight={"700"} fontSize={"24px"}>
+          <Text as="h3" fontWeight="700" fontSize="24px">
             {title}
           </Text>
           {counter && (
-            <Text as="span" fontSize={"16px"} textColor={"#8C8B92"}>
+            <Text as="span" fontSize="16px" textColor="#8C8B92">
               Step {flow} of 2
             </Text>
           )}
@@ -57,14 +87,11 @@ const ModalsLayout = ({
 
       <Box
         p={4}
-        mt={5}
-        mx={"auto"}
-        boxShadow={"xl"}
-        borderRadius={"md"}
-        border={"1px solid"}
-        borderColor={"#E7E7E7"}
-        // bg={"orange"}
-        width={{ sm: "60%", md: "65%" }}
+        mx="auto"
+        sx={formBoxStyles ? defaultBoxStyles : undefined}
+        boxShadow={boxShadow}
+        width={{ sm: "90%", md: "65%" }}
+        {...props}
       >
         {children}
       </Box>
