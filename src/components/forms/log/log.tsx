@@ -5,24 +5,28 @@ import {
   Flex,
   Box,
   Input,
-  Button,
-  Center,
 } from "@chakra-ui/react";
 
-const StudentForm = ({
-  // flow,
-  setFlow,
+const LogForm = ({
+  flow,
+//   setFlow,
+  ...props
 }: {
   flow: number;
-  setFlow: (flow: number) => void;
+  setFlow?: (flow: number) => void;
+  props?: any;
 }) => {
+  console.log("student form =>", flow);
   return (
     <Box
       py={4}
       px={8}
       fontWeight={400}
+    //   bg={"green"}
       fontFamily={"Nunito,sans-serif"}
       fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+      {...props}
+      w={"100%"}
     >
       <Flex gap={4} mb={4}>
         <FormControl id="first-name" mb={4}>
@@ -121,20 +125,24 @@ const StudentForm = ({
             fontWeight={600}
             fontSize={{ base: "20px", sm: "18px", md: "20px" }}
           >
+            Verifications
+          </FormLabel>
+          <Input type="number" placeholder="Status"/>
+          {/* <FormHelperText>We’ll never share your email.</FormHelperText> */}
+        </FormControl>
+        <FormControl id="email" flex={1}>
+          <FormLabel
+            fontWeight={600}
+            fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+          >
             Status
           </FormLabel>
-          <Input type="text" placeholder="Status" w={"50%"} />
+          <Input type="text" placeholder="Status"  />
           {/* <FormHelperText>We’ll never share your email.</FormHelperText> */}
         </FormControl>
       </Flex>
-
-      <Center>
-        <Button px={8} onClick={() => setFlow(2)}>
-          GENERATE QR CODE
-        </Button>
-      </Center>
     </Box>
   );
 };
 
-export default StudentForm;
+export default LogForm;

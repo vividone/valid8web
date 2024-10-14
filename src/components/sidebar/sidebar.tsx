@@ -10,6 +10,7 @@ import {
   HStack,
   Stack,
   Image,
+  // Link,
   useColorModeValue,
   useOutsideClick,
 } from "@chakra-ui/react";
