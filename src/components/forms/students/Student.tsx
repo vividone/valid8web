@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 
 const StudentForm = ({
-  // flow,
   setFlow,
 }: {
   flow: number;
@@ -18,17 +17,21 @@ const StudentForm = ({
 }) => {
   return (
     <Box
-      py={4}
-      px={8}
+      py={{ base: 2, md: 4 }} // Adjust padding for mobile
+      px={{ base: 4, md: 8 }} // Adjust padding for mobile
       fontWeight={400}
       fontFamily={"Nunito,sans-serif"}
-      fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+      fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
     >
-      <Flex gap={4} mb={4}>
-        <FormControl id="first-name" mb={4}>
+      <Flex
+        gap={4}
+        mb={4}
+        flexDirection={{ base: "column", md: "row" }} // Stack vertically on mobile
+      >
+        <FormControl id="first-name" mb={{ base: 4, md: 0 }}>
           <FormLabel
             fontWeight={600}
-            fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+            fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
             First Name
           </FormLabel>
@@ -38,7 +41,7 @@ const StudentForm = ({
         <FormControl id="last-name">
           <FormLabel
             fontWeight={600}
-            fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+            fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
             Last Name
           </FormLabel>
@@ -46,90 +49,102 @@ const StudentForm = ({
         </FormControl>
       </Flex>
 
-      <Flex gap={4} mb={4}>
-        <FormControl id="email" flex={1}>
+      <Flex
+        gap={4}
+        mb={4}
+        flexDirection={{ base: "column", md: "row" }} // Stack vertically on mobile
+      >
+        <FormControl id="id-number" flex={1}>
           <FormLabel
             fontWeight={600}
-            fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+            fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
             ID Card Number
           </FormLabel>
-          <Input type="email" placeholder="Id Card Number" />
-          {/* <FormHelperText>We’ll never share your email.</FormHelperText> */}
+          <Input placeholder="ID Card Number" />
         </FormControl>
 
-        <FormControl id="phone" flex={1}>
+        <FormControl id="matric-number" flex={1}>
           <FormLabel
             fontWeight={600}
-            fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+            fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
             Matric Number
           </FormLabel>
-          <Input type="tel" placeholder="Matric Number" />
+          <Input placeholder="Matric Number" />
         </FormControl>
       </Flex>
 
-      <Flex gap={4} mb={4}>
-        <FormControl id="email" flex={1}>
+      <Flex
+        gap={4}
+        mb={4}
+        flexDirection={{ base: "column", md: "row" }} // Stack vertically on mobile
+      >
+        <FormControl id="course" flex={1}>
           <FormLabel
             fontWeight={600}
-            fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+            fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
             Course
           </FormLabel>
-          <Input type="email" placeholder="Course" />
-          {/* <FormHelperText>We’ll never share your email.</FormHelperText> */}
+          <Input placeholder="Course" />
         </FormControl>
 
-        <FormControl id="phone" flex={1}>
+        <FormControl id="faculty" flex={1}>
           <FormLabel
             fontWeight={600}
-            fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+            fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
             Faculty
           </FormLabel>
-          <Input type="tel" placeholder="Faculty" />
+          <Input placeholder="Faculty" />
         </FormControl>
       </Flex>
 
-      <Flex gap={4} mb={4}>
-        <FormControl id="email" flex={1}>
+      <Flex
+        gap={4}
+        mb={4}
+        flexDirection={{ base: "column", md: "row" }} // Stack vertically on mobile
+      >
+        <FormControl id="year-of-entry" flex={1}>
           <FormLabel
             fontWeight={600}
-            fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+            fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
-            Year of entry
+            Year of Entry
           </FormLabel>
-          <Input type="email" placeholder="2023" />
-          {/* <FormHelperText>We’ll never share your email.</FormHelperText> */}
+          <Input placeholder="2023" />
         </FormControl>
 
-        <FormControl id="phone" flex={1}>
+        <FormControl id="valid-till" flex={1}>
           <FormLabel
             fontWeight={600}
-            fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+            fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
             Valid Till
           </FormLabel>
-          <Input type="tel" placeholder="Aug 2027" />
+          <Input placeholder="Aug 2027" />
         </FormControl>
       </Flex>
 
-      <Flex gap={4} mb={10}>
-        <FormControl id="email" flex={1}>
+      <Flex gap={4} mb={10} flexDirection={{ base: "column", md: "row" }}>
+        <FormControl id="status" flex={1}>
           <FormLabel
             fontWeight={600}
-            fontSize={{ base: "20px", sm: "18px", md: "20px" }}
+            fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
             Status
           </FormLabel>
-          <Input type="text" placeholder="Status" w={"50%"} />
-          {/* <FormHelperText>We’ll never share your email.</FormHelperText> */}
+          <Input placeholder="Status" w={{ base: "100%", md: "50%" }} />
         </FormControl>
       </Flex>
 
       <Center>
-        <Button px={8} onClick={() => setFlow(2)}>
+        <Button
+          px={8}
+          w={{ base: "100%", sm: "auto" }} // Full width on mobile, auto on larger screens
+          onClick={() => setFlow(2)}
+        >
           GENERATE QR CODE
         </Button>
       </Center>

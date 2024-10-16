@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Flex, Text, Box } from "@chakra-ui/react";
-import Table from "@/components/table/Table"; // Ensure Table component is responsive
+import Table from "@/components/table/Table";
 import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
 import LogForm from "@/components/forms/log/log";
@@ -84,7 +84,7 @@ const Logs = () => {
   ];
 
   return (
-    <Box position={"relative"} w="full">
+    <Box position={"relative"}>
       {/* Conditionally render modal */}
       {modalState.open && (
         <ModalsLayout
@@ -113,7 +113,7 @@ const Logs = () => {
         <Flex
           alignItems="center"
           justify="space-between"
-          flexDirection={{ base: "column", md: "row" }} // Ensure responsive layout
+          flexDirection={{ sm: "column", md: "row" }}
         >
           <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
             Logs
@@ -126,7 +126,7 @@ const Logs = () => {
           gap={4}
           w="full"
           flexWrap="wrap"
-          justify={{ base: "space-around", md: "space-between" }} // Flex responsive
+          justify={{ sm: "space-around", md: "space-between" }}
         >
           {infoBoxData.map(({ id, logo, title, value }) => (
             <InfoBox key={id} logo={logo} title={title} value={value} />
@@ -134,7 +134,7 @@ const Logs = () => {
         </Flex>
 
         {/* Table Section */}
-        <Box mt={4} overflowX="auto"> {/* Allow scrolling for mobile */}
+        <Box mt={4} w="full">
           <Table data={LogsData} Action={handleOpenModal} />
         </Box>
       </Box>

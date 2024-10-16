@@ -11,11 +11,12 @@ import {
   FormLabel,
   Stack,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const router = useRouter();
   return (
     <Center width={{ base: "100%", md: "full" }} height="100vh">
-
       {/* Main Stack */}
       <Stack
         width="100%"
@@ -81,12 +82,19 @@ export default function Home() {
               {/* Remember Me Section */}
               <Flex alignItems="center" gap={3}>
                 <Checkbox variant="auth" />
-                <Text fontFamily={"Nunito,sans-serif"} fontWeight={500}>Remember me</Text>
+                <Text fontFamily={"Nunito,sans-serif"} fontWeight={500}>
+                  Remember me
+                </Text>
               </Flex>
 
               {/* Login Button */}
               <Center marginTop={12} width="full" mb={{ sm: 5, md: 0 }}>
-                <Button variant="auth">LOGIN</Button>
+                <Button
+                  variant="auth"
+                  onClick={() => router.push("/admin/dashboard")}
+                >
+                  LOGIN
+                </Button>
               </Center>
             </Stack>
           </Box>
