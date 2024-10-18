@@ -77,10 +77,10 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
       borderColor="#E7E7E7"
       borderRadius="md"
       boxShadow="xl"
+      w="full"
       py={6}
       fontFamily={"Nunito"}
-      minW="100%"
-      overflowX={{ base: "scroll", md: "hidden" }} // Ensure horizontal scrolling on mobile
+      overflowX={{ base: "scroll", md: "hidden" }} 
     >
       <TableContainer w="full">
         <Table variant="simple" size="md">

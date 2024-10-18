@@ -1,3 +1,4 @@
+"use client"
 import {
   Box,
   Flex,
@@ -11,7 +12,7 @@ import {
   FormLabel,
   Stack,
 } from "@chakra-ui/react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const router = useRouter();
