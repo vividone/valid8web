@@ -73,7 +73,7 @@ const Students = () => {
       <Box py={8}>
         {/* Header */}
         <Flex
-                  flexWrap={"wrap"}
+          flexWrap={"wrap"}
           alignItems="center"
           justify="space-between"
           flexDirection={{ sm: "column", md: "row" }}
@@ -82,10 +82,10 @@ const Students = () => {
             Dashboard
           </Text>
           <Flex gap={4}>
-            <Button size="md" onClick={() => handleOpenModal(1)}>
+            <Button size={{sm:"sm",md:"md"}} onClick={() => handleOpenModal(1)}>
               ADD STUDENTS
             </Button>
-            <Button size="md">BULK UPLOAD</Button>
+            <Button size={{sm:"sm",md:"md"}} >BULK UPLOAD</Button>
           </Flex>
         </Flex>
 
