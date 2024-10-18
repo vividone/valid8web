@@ -137,9 +137,9 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
       </Flex>
 
       {/* Menu Sections */}
-      {/* <SideBarNavLinks items={adminMenue} path={path} /> */}
-      <SideBarNavLinks items={BusinessAdmin} path={path} />
-      {/* <SideBarNavLinks items={adminMenue} path={path} /> */}
+      <SideBarNavLinks items={adminMenue} path={path} />
+      {false && <SideBarNavLinks items={BusinessAdmin} path={path} />}
+      {false && <SideBarNavLinks items={adminMenue} path={path} />}
 
       {/* Footer Section */}
       <Box fontSize={{ sm: "18px", md: "20px" }} p={4} mt={"auto"}>
