@@ -1,30 +1,30 @@
 "use client";
+import QR from "@/components/QR/QR";
 import React, { useState } from "react";
-import { Flex, Text, Box, Button } from "@chakra-ui/react";
 import Table from "@/components/table/Table";
-import { InfoBox } from "@/components/modals/CustomComponents";
+import StaffForm from "@/components/forms/staff/Staff";
+import { Flex, Text, Box, Button } from "@chakra-ui/react";
 import ModalsLayout from "@/components/modals/modalsLayout";
-import StudentForm from "@/components/forms/students/Student";
-import QR from "@/components/forms/students/QR";
+import { InfoBox } from "@/components/modals/CustomComponents";
 
 // Data for InfoBox cards
 const infoBoxData = [
   {
     id: "1",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Students",
+    title: "Total Staff",
     value: 10000,
   },
   {
     id: "2",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Validations",
+    title: "Total Verified",
     value: 5000,
   },
   {
     id: "3",
     logo: "/images/dashboard/pseudo3.png",
-    title: "Verifiers",
+    title: "Total Unverified",
     value: 500,
   },
 ];
@@ -32,7 +32,7 @@ const infoBoxData = [
 const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
   switch (flow) {
     case 1:
-      return <StudentForm flow={flow} setFlow={setFlow} />;
+      return <StaffForm flow={flow} setFlow={setFlow} />;
     case 2:
       return <QR />;
     default:
@@ -82,7 +82,7 @@ const AdminDashboard = () => {
           </Text>
           <Flex gap={4}>
             <Button size="md" onClick={() => handleOpenModal(1)}>
-              ADD STUDENTS
+              ADD STAFF
             </Button>
             <Button size="md">BULK UPLOAD</Button>
           </Flex>

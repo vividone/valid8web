@@ -16,7 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Box minW={{ base: "fit-content", sm: "fit-content", md: "260px" }}>
         <SideBar open={open} setOpen={setOpen} />
       </Box>
-      <Box flex={{ md: 3 }} p={4} px={8} width={{ sm: "100%", md: "80%" }}>
+      <Box flex={{ md: 3 }} p={4} px={8} width={{ sm: "100%", md: "80%" }} overflowX={"scroll"}>
         <Box pt={6}>
           <SearchBar setOpen={setOpen} />
         </Box>

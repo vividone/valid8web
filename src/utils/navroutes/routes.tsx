@@ -4,6 +4,9 @@ import {
     VerifierIcon,
     BillersIcon,
     LogsIcon,
+    StaffIcon,
+    SettingsIcon,
+    InstitutionIcon
 } from "@/components/icons/icons"
 
 export const adminMenue = [
@@ -33,33 +36,60 @@ export const adminMenue = [
         Icon: LogsIcon,
     },
 ];
-
+// -------> SUPERADMIN MENUE<-------
+export const BusinessAdmin = [
+    {
+        Name: "Dashboard",
+        route: `/businessadmin/dashboard`,
+        Icon: DashboardIcon,
+    },
+    {
+        Name: "Staff",
+        route: "/businessadmin/Staff",
+        Icon: StaffIcon,
+    },
+    {
+        Name: "Verifiers",
+        route: "/businessadmin/verifiers",
+        Icon: VerifierIcon,
+    },
+    {
+        Name: "Billings",
+        route: "/businessadmin/Billings",
+        Icon:  BillersIcon,
+    },
+    {
+        Name: "Logs",
+        route: "/businessadmin/logs",
+        Icon: LogsIcon,
+    },
+];
 // -------> SUPERADMIN MENUE<-------
 
 export const superAdmin = [
     {
         Name: "Dashboard",
-        route: `/admin/dashboard`,
+        route: `/superadmin/dashboard`,
         Icon: DashboardIcon,
     },
     {
-        Name: "Students",
-        route: "/admin/Students",
-        Icon: StudentIcon,
-    },
-    {
-        Name: "Verifiers",
-        route: "/admin/verifiers",
-        Icon: VerifierIcon,
+        Name: "Institution",
+        route: "/superadmin/Institution",
+        Icon: InstitutionIcon,
     },
     {
         Name: "Billings",
-        route: "/admin/Billings",
+        route: "/superadmin/Billings",
         Icon:  BillersIcon,
     },
     {
         Name: "Logs",
-        route: "/admin/logs",
+        route: "/superadmin/logs",
         Icon: LogsIcon,
+    },
+    {
+        Name: "Settings",
+        route: "/superadmin/Settings",
+        Icon: SettingsIcon,
     },
 ];

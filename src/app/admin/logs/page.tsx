@@ -85,6 +85,7 @@ const Logs = () => {
 
   return (
     <Box position={"relative"} w="full">
+
       {/* Conditionally render modal */}
       {modalState.open && (
         <ModalsLayout
@@ -109,9 +110,11 @@ const Logs = () => {
       )}
 
       <Box py={8}>
+
         {/* Header */}
         <Flex
           alignItems="center"
+          flexWrap={"wrap"}
           justify="space-between"
           flexDirection={{ base: "column", md: "row" }} // Ensure responsive layout
         >

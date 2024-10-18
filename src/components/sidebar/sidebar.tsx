@@ -14,9 +14,13 @@ import {
   useColorModeValue,
   useOutsideClick,
 } from "@chakra-ui/react";
+import {
+  adminMenue,
+  BusinessAdmin,
+  superAdmin,
+} from "@/utils/navroutes/routes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { adminMenue } from "@/utils/navroutes/routes";
 import baseUrl from "@/constants/baseUrl";
 
 interface SideBarProps {
@@ -133,7 +137,9 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
       </Flex>
 
       {/* Menu Sections */}
-      <SideBarNavLinks items={adminMenue} path={path} />
+      {/* <SideBarNavLinks items={adminMenue} path={path} /> */}
+      <SideBarNavLinks items={BusinessAdmin} path={path} />
+      {/* <SideBarNavLinks items={adminMenue} path={path} /> */}
 
       {/* Footer Section */}
       <Box fontSize={{ sm: "18px", md: "20px" }} p={4} mt={"auto"}>

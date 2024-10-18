@@ -5,13 +5,28 @@ import Table from "@/components/table/Table";
 import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
 import StudentForm from "@/components/forms/students/Student";
-import QR from "@/components/forms/students/QR";
+import QR from "@/components/QR/QR";
 
 // Data for InfoBox cards
 const infoBoxData = [
-  { id: "1", logo: "/images/dashboard/pseudo1.png", title: "Students", value: 10000 },
-  { id: "2", logo: "/images/dashboard/pseudo1.png", title: "Validations", value: 5000 },
-  { id: "3", logo: "/images/dashboard/pseudo3.png", title: "Verifiers", value: 500 },
+  {
+    id: "1",
+    logo: "/images/dashboard/pseudo1.png",
+    title: "Students",
+    value: 10000,
+  },
+  {
+    id: "2",
+    logo: "/images/dashboard/pseudo1.png",
+    title: "Validations",
+    value: 5000,
+  },
+  {
+    id: "3",
+    logo: "/images/dashboard/pseudo3.png",
+    title: "Verifiers",
+    value: 500,
+  },
 ];
 
 // Helper function to render modal content based on flow state
@@ -38,12 +53,11 @@ const Billings = () => {
   };
 
   const setFlow = (newFlow: number) => {
-    setModalState(prevState => ({ ...prevState, flow: newFlow }));
+    setModalState((prevState) => ({ ...prevState, flow: newFlow }));
   };
 
   return (
     <Box>
-      
       {/* Conditionally render modal */}
       {modalState.open && (
         <ModalsLayout setOpen={handleCloseModal} flow={modalState.flow}>
@@ -53,23 +67,38 @@ const Billings = () => {
 
       <Box py={8}>
         {/* Header */}
-        <Flex alignItems="center" justify="space-between" flexDirection={{ sm: "column", md: "row" }}>
-          <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>Dashboard</Text>
+        <Flex
+          flexWrap={"wrap"}
+          alignItems="center"
+          justify="space-between"
+          flexDirection={{ sm: "column", md: "row" }}
+        >
+          <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
+            Dashboard
+          </Text>
           <Flex gap={4}>
-            <Button size="md" onClick={() => handleOpenModal(1)}>ADD STUDENTS</Button>
+            <Button size="md" onClick={() => handleOpenModal(1)}>
+              ADD STUDENTS
+            </Button>
             <Button size="md">BULK UPLOAD</Button>
           </Flex>
         </Flex>
 
         {/* InfoBox Section */}
-        <Flex mt={4} gap={4} w="full" flexWrap="wrap" justify={{ sm: "space-around", md: "space-between" }}>
+        <Flex
+          mt={4}
+          gap={4}
+          w="full"
+          flexWrap="wrap"
+          justify={{ sm: "space-around", md: "space-between" }}
+        >
           {infoBoxData.map(({ id, logo, title, value }) => (
             <InfoBox key={id} logo={logo} title={title} value={value} />
           ))}
         </Flex>
 
         {/* Table Section */}
-        <Box mt={4}>
+        <Box mt={4} w="100%">
           <Table />
         </Box>
       </Box>
