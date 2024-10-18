@@ -79,7 +79,7 @@ const Students = () => {
           flexDirection={{ sm: "column", md: "row" }}
         >
           <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
-            Dashboard
+            Student
           </Text>
           <Flex gap={4}>
             <Button size={{sm:"sm",md:"md"}} onClick={() => handleOpenModal(1)}>
