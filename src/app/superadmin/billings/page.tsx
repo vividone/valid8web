@@ -5,7 +5,7 @@ import Table from "@/components/table/Table";
 import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
 import StudentForm from "@/components/forms/students/Student";
-import QR from "@/components/forms/students/QR";
+import QR from "@/components/QR/QR";
 
 // Data for InfoBox cards
 const infoBoxData = [
@@ -26,7 +26,7 @@ const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
   }
 };
 
-const Students = () => {
+const Billings = () => {
   const [modalState, setModalState] = useState({ open: false, flow: 0 });
 
   const handleOpenModal = (flow: number) => {
@@ -77,4 +77,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default Billings;

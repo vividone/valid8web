@@ -5,7 +5,7 @@ import Table from "@/components/table/Table";
 import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
 import StudentForm from "@/components/forms/students/Student";
-import QR from "@/components/forms/students/QR";
+import QR from "@/components/QR/QR";
 
 // Data for InfoBox cards
 const infoBoxData = [
@@ -73,18 +73,19 @@ const Students = () => {
       <Box py={8}>
         {/* Header */}
         <Flex
+          flexWrap={"wrap"}
           alignItems="center"
           justify="space-between"
           flexDirection={{ sm: "column", md: "row" }}
         >
           <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
-            Dashboard
+            Student
           </Text>
           <Flex gap={4}>
-            <Button size="md" onClick={() => handleOpenModal(1)}>
+            <Button size={{sm:"sm",md:"md"}} onClick={() => handleOpenModal(1)}>
               ADD STUDENTS
             </Button>
-            <Button size="md">BULK UPLOAD</Button>
+            <Button size={{sm:"sm",md:"md"}} >BULK UPLOAD</Button>
           </Flex>
         </Flex>
 

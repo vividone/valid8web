@@ -11,7 +11,7 @@ export const ButtonStyles = defineStyleConfig({
   },
   sizes: {
     sm: {
-      fontSize: '10px',
+      fontSize: '14px',
       width: "200px",
       height: "41px",
       paddingX: 4,
@@ -49,6 +49,7 @@ export const ButtonStyles = defineStyleConfig({
     },
     ghost: {
       px: 12,
+      py:8,
       bg: "#3C5DD233",
       color: "#3C5DD2",
       fontWeight: "700",

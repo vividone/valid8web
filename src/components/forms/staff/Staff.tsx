@@ -9,7 +9,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 
-const StudentForm = ({
+const StaffForm = ({
   setFlow,
 }: {
   flow: number;
@@ -69,9 +69,9 @@ const StudentForm = ({
             fontWeight={600}
             fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
-            Matric Number
+            Department
           </FormLabel>
-          <Input placeholder="Matric Number" />
+          <Input placeholder="Department" />
         </FormControl>
       </Flex>
 
@@ -85,7 +85,7 @@ const StudentForm = ({
             fontWeight={600}
             fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
-            Course
+            Valid Till
           </FormLabel>
           <Input placeholder="Course" />
         </FormControl>
@@ -95,7 +95,7 @@ const StudentForm = ({
             fontWeight={600}
             fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
-            Faculty
+            Email
           </FormLabel>
           <Input placeholder="Faculty" />
         </FormControl>
@@ -111,7 +111,7 @@ const StudentForm = ({
             fontWeight={600}
             fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
-            Year of Entry
+            Phone Number
           </FormLabel>
           <Input placeholder="2023" />
         </FormControl>
@@ -121,21 +121,9 @@ const StudentForm = ({
             fontWeight={600}
             fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
           >
-            Valid Till
-          </FormLabel>
-          <Input placeholder="Aug 2027" />
-        </FormControl>
-      </Flex>
-
-      <Flex gap={4} mb={10} flexDirection={{ base: "column", md: "row" }}>
-        <FormControl id="status" flex={1}>
-          <FormLabel
-            fontWeight={600}
-            fontSize={{ base: "16px", sm: "18px", md: "20px" }} // Responsive font size
-          >
             Status
           </FormLabel>
-          <Input placeholder="Status" w={{ base: "100%", md: "50%" }} />
+          <Input placeholder="Aug 2027" />
         </FormControl>
       </Flex>
 
@@ -152,4 +140,4 @@ const StudentForm = ({
   );
 };
 
-export default StudentForm;
+export default StaffForm;

@@ -13,7 +13,7 @@ import {
   TableContainer,
 } from "@chakra-ui/react";
 import { EyeIcon } from "../icons/icons";
-import { Container } from "../topbar/SearchBar";
+
 
 type StudentData = {
   Student: string;
@@ -30,7 +30,6 @@ type LogsDataType = {
   Timestamp: string[];
   Action: string;
 };
-
 
 type DynamicStudentTableProps = {
   data?: StudentData[] | LogsDataType | any; // Explicit type for array of StudentData
@@ -68,22 +67,33 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
     },
   ];
 
-  const currData:any = data ?? studentsData;
-  const headers:any = currData.length > 0 ? Object.keys(currData[0]) : [];
+  const currData: any = data ?? studentsData;
+  const headers: any = currData.length > 0 ? Object.keys(currData[0]) : [];
 
   return (
-    <Container boxShadow="xl" py={6} fontFamily={"Nunito"} w="full">
+    <Box
+      px={3}
+      border="1px solid"
+      borderColor="#E7E7E7"
+      borderRadius="md"
+      boxShadow="xl"
+      w="full"
+      py={6}
+      fontFamily={"Nunito"}
+      overflowX={{ base: "scroll", md: "hidden" }} 
+    >
       <TableContainer w="full">
         <Table variant="simple" size="md">
           <Thead>
             <Tr>
-              {headers.map((header:any, index:any) => (
+              {headers.map((header: any, index: any) => (
                 <Th
                   key={index}
-                  fontSize="20px"
+                  fontSize={{ base: "16px", md: "20px" }} // Adjust font size for mobile
                   fontWeight={800}
                   color={"blackAlpha.900"}
                   fontFamily={"Nunito,sans-serif"}
+                  whiteSpace={{ base: "nowrap", md: "normal" }} // Prevent headers from wrapping on smaller screens
                 >
                   {header}
                 </Th>
@@ -91,19 +101,19 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
             </Tr>
           </Thead>
           <Tbody>
-            {currData.map((student:any, rowIndex:any) => (
+            {currData.map((student: any, rowIndex: any) => (
               <Tr key={rowIndex} height="70px">
-                {headers.map((header:any, colIndex:any) => (
+                {headers.map((header: any, colIndex: any) => (
                   <React.Fragment key={colIndex}>
                     {header === "Status" ? (
                       student[header] === "Active" ? (
                         <Td
                           fontWeight={500}
-                          fontSize={"16px"}
+                          fontSize={{ base: "14px", md: "16px" }} // Adjust font size for mobile
                           textColor={"#7000FA"}
                         >
                           <Box
-                            px={8}
+                            px={6}
                             py={2}
                             as="span"
                             bg={"#7000FA14"}
@@ -116,11 +126,11 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                       ) : (
                         <Td
                           fontWeight={500}
-                          fontSize={"16px"}
+                          fontSize={{ base: "14px", md: "16px" }} // Adjust font size for mobile
                           textColor={"#FF0000"}
                         >
                           <Box
-                            px={8}
+                            px={6}
                             py={2}
                             as="span"
                             bg={"#FF000014"}
@@ -133,7 +143,7 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                       )
                     ) : header === "Action" ? (
                       <Td
-                        fontSize="18px"
+                        fontSize={{ base: "14px", md: "18px" }} // Adjust font size for mobile
                         fontWeight={500}
                         color={"#3C5DD2"}
                         fontFamily={"Nunito,sans-serif"}
@@ -141,7 +151,7 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                         <HStack gap={2} cursor={"pointer"}>
                           <Icon as={EyeIcon} />
                           <Text
-                            fontSize={"16px"}
+                            fontSize={{ base: "14px", md: "16px" }} // Adjust font size for mobile
                             fontWeight={500}
                             onClick={() => Action && Action(1)}
                           >
@@ -151,7 +161,7 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                       </Td>
                     ) : header === "Result" ? (
                       <Td
-                        fontSize="18px"
+                        fontSize={{ base: "14px", md: "18px" }} // Adjust font size for mobile
                         fontWeight={500}
                         color={"blackAlpha.900"}
                         fontFamily={"Nunito,sans-serif"}
@@ -164,7 +174,7 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                       </Td>
                     ) : Array.isArray(student[header]) ? (
                       <Td
-                        fontSize="18px"
+                        fontSize={{ base: "14px", md: "18px" }} // Adjust font size for mobile
                         fontWeight={500}
                         color={"blackAlpha.900"}
                         fontFamily={"Nunito,sans-serif"}
@@ -173,7 +183,7 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                           <Box>{student[header][0]}</Box>
                           <Box
                             color={"#8C8B92"}
-                            fontSize={"16px"}
+                            fontSize={{ base: "14px", md: "16px" }} // Adjust font size for mobile
                             fontWeight={400}
                           >
                             {student[header][1]}
@@ -182,7 +192,7 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                       </Td>
                     ) : (
                       <Td
-                        fontSize="18px"
+                        fontSize={{ base: "14px", md: "18px" }} // Adjust font size for mobile
                         fontWeight={500}
                         color={"blackAlpha.900"}
                         fontFamily={"Nunito,sans-serif"}
@@ -197,7 +207,7 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
           </Tbody>
         </Table>
       </TableContainer>
-    </Container>
+    </Box>
   );
 };
 

@@ -5,7 +5,7 @@ import Table from "@/components/table/Table";
 import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
 import StudentForm from "@/components/forms/students/Student";
-import QR from "@/components/forms/students/QR";
+import QR from "@/components/QR/QR";
 
 // Data for InfoBox cards
 const infoBoxData = [
