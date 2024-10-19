@@ -49,6 +49,7 @@ export const ButtonStyles = defineStyleConfig({
     },
     ghost: {
       px: 12,
+      py:8,
       bg: "#3C5DD233",
       color: "#3C5DD2",
       fontWeight: "700",

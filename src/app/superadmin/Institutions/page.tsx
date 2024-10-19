@@ -12,20 +12,20 @@ const infoBoxData = [
   {
     id: "1",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Total Staff",
-    value: 10000,
+    title: "Total Institutions",
+    value: 10001,
   },
   {
     id: "2",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Total Verified",
+    title: "Total Staff",
     value: 5000,
   },
   {
     id: "3",
     logo: "/images/dashboard/pseudo3.png",
-    title: "Total Unverified",
-    value: 500,
+    title: "Total Students",
+    value: 5000,
   },
 ];
 
@@ -82,9 +82,8 @@ const Institution = () => {
           </Text>
           <Flex gap={4}>
             <Button size="md" onClick={() => handleOpenModal(1)}>
-              ADD STAFF
+              SETUP INSTITUTION
             </Button>
-            <Button size="md">BULK UPLOAD</Button>
           </Flex>
         </Flex>
 

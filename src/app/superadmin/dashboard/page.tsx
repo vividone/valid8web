@@ -4,44 +4,43 @@ import { Flex, Text, Box, Button } from "@chakra-ui/react";
 import Table from "@/components/table/Table";
 import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
-import StudentForm from "@/components/forms/students/Student";
-import QR from "@/components/QR/QR";
+import AdminCrentialForm from "@/components/forms/institution/AdminCredential";
+import InstitutionDetailsForm from "@/components/forms/institution/Institutiondetails";
 
 // Data for InfoBox cards
 const infoBoxData = [
   {
     id: "1",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Students",
+    title: "Total Institutions",
     value: 10000,
   },
   {
     id: "2",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Validations",
+    title: "Total Staff",
     value: 5000,
   },
   {
     id: "3",
     logo: "/images/dashboard/pseudo3.png",
-    title: "Verifiers",
+    title: "Total Students",
     value: 500,
   },
 ];
 
-// Helper function to render modal content based on flow state
 const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
   switch (flow) {
     case 1:
-      return <StudentForm flow={flow} setFlow={setFlow} />;
+      return <InstitutionDetailsForm flow={flow} setFlow={setFlow} />;
     case 2:
-      return <QR />;
+      return <AdminCrentialForm flow={flow} />;
     default:
       return null;
   }
 };
 
-const Billings = () => {
+const SuperAdminDashboard = () => {
   const [modalState, setModalState] = useState({ open: false, flow: 0 });
 
   const handleOpenModal = (flow: number) => {
@@ -56,16 +55,22 @@ const Billings = () => {
     setModalState((prevState) => ({ ...prevState, flow: newFlow }));
   };
 
+  const titles = ["Add Student", "QR Code"];
+
   return (
     <Box>
-      {/* Conditionally render modal */}
+      {/* Conditionally render mo dal */}
       {modalState.open && (
-        <ModalsLayout setOpen={handleCloseModal} flow={modalState.flow}>
+        <ModalsLayout
+          flow={modalState.flow}
+          setOpen={handleCloseModal}
+          title={titles[modalState.flow - 1]}
+        >
           {renderModalContent(modalState.flow, setFlow)} {/* Pass setFlow */}
         </ModalsLayout>
       )}
 
-      <Box py={8}>
+      <Box py={8} w="full">
         {/* Header */}
         <Flex
           flexWrap={"wrap"}
@@ -74,13 +79,15 @@ const Billings = () => {
           flexDirection={{ sm: "column", md: "row" }}
         >
           <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
-            Billings
+            Dashboard
           </Text>
           <Flex gap={4}>
-            <Button size={{sm:"sm",md:"md"}} onClick={() => handleOpenModal(1)}>
-              ADD STUDENTS
+            <Button
+              size={{ sm: "sm", md: "md" }}
+              onClick={() => handleOpenModal(1)}
+            >
+              setup Institution
             </Button>
-            <Button size={{sm:"sm",md:"md"}} >BULK UPLOAD</Button>
           </Flex>
         </Flex>
 
@@ -98,7 +105,7 @@ const Billings = () => {
         </Flex>
 
         {/* Table Section */}
-        <Box mt={4} w="100%">
+        <Box mt={4}>
           <Table />
         </Box>
       </Box>
@@ -106,4 +113,4 @@ const Billings = () => {
   );
 };
 
-export default Billings;
+export default SuperAdminDashboard;

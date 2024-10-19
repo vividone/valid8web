@@ -11,20 +11,20 @@ const infoBoxData = [
   {
     id: "1",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Requests",
-    value: 10000,
+    title: "Total Institutions",
+    value: 10001,
   },
   {
     id: "2",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Valid",
+    title: "Total Staff",
     value: 5000,
   },
   {
     id: "3",
     logo: "/images/dashboard/pseudo3.png",
-    title: "Failed",
-    value: 500,
+    title: "Total Students",
+    value: 5000,
   },
 ];
 
