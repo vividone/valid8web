@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   Box,
   Flex,
@@ -17,7 +17,11 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter();
   return (
-    <Center width={{ base: "100%", md: "full" }} height="100vh">
+    <Center
+      height="100vh"
+      overflowY={"hidden"}
+      width={{ base: "100%", md: "full" }}
+    >
       {/* Main Stack */}
       <Stack
         width="100%"
@@ -29,9 +33,9 @@ export default function Home() {
         <Center width="100%" marginBottom={{ base: 3, md: 2, lg: 4 }}>
           <Image
             alt="logo"
-            height="65px"
+            height={{ sm: "50px", md: "65px" }}
             src="/images/auth/logo.png"
-            width={{ base: "242px", md: "242px" }}
+            width={{ base: "200px", md: "242px" }}
           />
         </Center>
 
@@ -92,7 +96,7 @@ export default function Home() {
               <Center marginTop={12} width="full" mb={{ sm: 5, md: 0 }}>
                 <Button
                   variant="auth"
-                  onClick={() => router.push("/admin/dashboard")}
+                  onClick={() => router.push("/bussinessadmin/dashboard")}
                 >
                   LOGIN
                 </Button>

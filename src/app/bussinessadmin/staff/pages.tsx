@@ -6,26 +6,25 @@ import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
 import StudentForm from "@/components/forms/students/Student";
 import QR from "@/components/QR/QR";
-// import SuccessModal from "@/components/modals/success/SuccessModal";
 
 // Data for InfoBox cards
 const infoBoxData = [
   {
     id: "1",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Students",
+    title: "Total Staff",
     value: 10000,
   },
   {
     id: "2",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Validations",
+    title: "Total Verified",
     value: 5000,
   },
   {
     id: "3",
     logo: "/images/dashboard/pseudo3.png",
-    title: "Verifiers",
+    title: "Total Unverified",
     value: 500,
   },
 ];
@@ -41,8 +40,9 @@ const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
       return null;
   }
 };
+const titles = ["Add Student", "QR"];
 
-const Billings = () => {
+const Students = () => {
   const [modalState, setModalState] = useState({ open: false, flow: 0 });
 
   const handleOpenModal = (flow: number) => {
@@ -58,14 +58,17 @@ const Billings = () => {
   };
 
   return (
-    <Box bg="white">
+    <Box>
       {/* Conditionally render modal */}
       {modalState.open && (
-        <ModalsLayout setOpen={handleCloseModal} flow={modalState.flow}>
+        <ModalsLayout
+          flow={modalState.flow}
+          setOpen={handleCloseModal}
+          title={titles[modalState.flow]}
+        >
           {renderModalContent(modalState.flow, setFlow)} {/* Pass setFlow */}
         </ModalsLayout>
       )}
-      {/* <SuccessModal/> */}
 
       <Box py={8}>
         {/* Header */}
@@ -76,14 +79,14 @@ const Billings = () => {
           flexDirection={{ sm: "column", md: "row" }}
         >
           <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
-            Billings
+            All Staff
           </Text>
           <Flex gap={4}>
             <Button
               size={{ sm: "sm", md: "md" }}
               onClick={() => handleOpenModal(1)}
             >
-              ADD STUDENTS
+              ADD STAFFS
             </Button>
             <Button size={{ sm: "sm", md: "md" }}>BULK UPLOAD</Button>
           </Flex>
@@ -103,7 +106,7 @@ const Billings = () => {
         </Flex>
 
         {/* Table Section */}
-        <Box mt={4} w="100%">
+        <Box mt={4}>
           <Table />
         </Box>
       </Box>
@@ -111,4 +114,4 @@ const Billings = () => {
   );
 };
 
-export default Billings;
+export default Students;

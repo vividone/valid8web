@@ -16,8 +16,8 @@ import {
 } from "@chakra-ui/react";
 import {
   adminMenue,
-  BusinessAdmin,
-  superAdmin,
+  // BusinessAdmin,
+  // superAdmin,
 } from "@/utils/navroutes/routes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -138,8 +138,8 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
 
       {/* Menu Sections */}
       <SideBarNavLinks items={adminMenue} path={path} />
-      {false && <SideBarNavLinks items={superAdmin} path={path} />}
-      {false && <SideBarNavLinks items={BusinessAdmin} path={path} />}
+      {/* {true && <SideBarNavLinks items={superAdmin} path={path} />} */}
+      {/* {true&& <SideBarNavLinks items={BusinessAdmin} path={path} />} */}
 
       {/* Footer Section */}
       <Box fontSize={{ sm: "18px", md: "20px" }} p={4} mt={"auto"}>
@@ -165,7 +165,7 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
               <Box
                 as="h2"
                 fontWeight={600}
-                fontSize={{ base: "20px", sm: "16px", md: "18px" }}
+                fontSize={{ base: "18px", sm: "16px", md: "18px" }}
               >
                 Covenant University
               </Box>

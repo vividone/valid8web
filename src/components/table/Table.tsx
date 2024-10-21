@@ -12,8 +12,7 @@ import {
   Text,
   TableContainer,
 } from "@chakra-ui/react";
-import { EyeIcon } from "../icons/icons";
-
+import { EyeIcon, DeleteIcon, EditIcon } from "../icons/icons";
 
 type StudentData = {
   Student: string;
@@ -80,7 +79,7 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
       w="full"
       py={6}
       fontFamily={"Nunito"}
-      overflowX={{ base: "scroll", md: "hidden" }} 
+      overflowX={{ base: "scroll", md: "hidden" }}
     >
       <TableContainer w="full">
         <Table variant="simple" size="md">

@@ -12,10 +12,10 @@ export const ButtonStyles = defineStyleConfig({
   sizes: {
     sm: {
       fontSize: '14px',
-      width: "200px",
+      width: "180px",
       height: "41px",
       paddingX: 4,
-      paddingY: 2,
+      paddingY: 4,
       borderRadius: "5px",
     },
     md: {
