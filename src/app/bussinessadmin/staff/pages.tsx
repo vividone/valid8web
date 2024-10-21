@@ -12,19 +12,19 @@ const infoBoxData = [
   {
     id: "1",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Students",
+    title: "Total Staff",
     value: 10000,
   },
   {
     id: "2",
     logo: "/images/dashboard/pseudo1.png",
-    title: "Validations",
+    title: "Total Verified",
     value: 5000,
   },
   {
     id: "3",
     logo: "/images/dashboard/pseudo3.png",
-    title: "Verifiers",
+    title: "Total Unverified",
     value: 500,
   },
 ];
@@ -40,7 +40,6 @@ const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
       return null;
   }
 };
-
 const titles = ["Add Student", "QR"];
 
 const Students = () => {
@@ -65,40 +64,31 @@ const Students = () => {
         <ModalsLayout
           flow={modalState.flow}
           setOpen={handleCloseModal}
-          title={titles[modalState.flow - 1]} // Adjusted to pick the correct title
+          title={titles[modalState.flow]}
         >
           {renderModalContent(modalState.flow, setFlow)} {/* Pass setFlow */}
         </ModalsLayout>
       )}
 
-      <Box py={8} w="full">
+      <Box py={8}>
         {/* Header */}
         <Flex
-          flex={1}
+          flexWrap={"wrap"}
           alignItems="center"
           justify="space-between"
           flexDirection={{ sm: "column", md: "row" }}
-          flexWrap={{ base: "wrap", sm: "wrap", md: "nowrap" }}
         >
           <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
-            Students
+            All Staff
           </Text>
-          <Flex gap={4} flex={3}>
-            <Flex
-              w={"90%"}
-              gap={{ sm: 2, md: 4 }}
-              ml={{ sm: 0, md: "auto" }}
-              justify={"flex-end"}
+          <Flex gap={4}>
+            <Button
+              size={{ sm: "sm", md: "md" }}
+              onClick={() => handleOpenModal(1)}
             >
-              <Button
-                mr={4}
-                size={{ base: "sm", md: "md" }} // Responsive sizes based on screen size
-                onClick={() => handleOpenModal(1)}
-              >
-                ADD STUDENTS
-              </Button>
-              <Button size={{ base: "sm", md: "md" }}>BULK UPLOAD</Button>
-            </Flex>
+              ADD STAFFS
+            </Button>
+            <Button size={{ sm: "sm", md: "md" }}>BULK UPLOAD</Button>
           </Flex>
         </Flex>
 

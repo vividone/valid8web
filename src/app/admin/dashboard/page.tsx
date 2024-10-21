@@ -73,19 +73,31 @@ const AdminDashboard = () => {
       <Box py={8} w="full">
         {/* Header */}
         <Flex
-          flexWrap={"wrap"}
+          flex={1}
           alignItems="center"
           justify="space-between"
           flexDirection={{ sm: "column", md: "row" }}
+          flexWrap={{ base: "wrap", sm: "wrap", md: "nowrap" }}
         >
           <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
             Dashboard
           </Text>
-          <Flex gap={4} >
-            <Button size={{sm:"sm",md:"md"}} onClick={() => handleOpenModal(1)}>
-              ADD STUDENTS
-            </Button>
-            <Button size={{sm:"sm",md:"md"}} >BULK UPLOAD</Button>
+          <Flex gap={4} flex={3}>
+            <Flex
+              w={"90%"}
+              gap={{ sm: 2, md: 4 }}
+              ml={{ sm: 0, md: "auto" }}
+              justify={"flex-end"}
+            >
+              <Button
+                mr={4}
+                size={{ base: "sm", md: "md" }} // Responsive sizes based on screen size
+                onClick={() => handleOpenModal(1)}
+              >
+                ADD STUDENTS
+              </Button>
+              <Button size={{ base: "sm", md: "md" }}>BULK UPLOAD</Button>
+            </Flex>
           </Flex>
         </Flex>
 

@@ -62,7 +62,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
               size="md"
               placeholder="Search here..."
               fontSize={{ base: "16px", md: "16px" }}
-              w={{ base: "80%", sm: "100%", md: "75%" }}
+              w={{ base: "100%", sm: "100%", md: "75%" }}
             />
           </InputGroup>
         </Flex>

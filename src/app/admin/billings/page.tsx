@@ -6,6 +6,7 @@ import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
 import StudentForm from "@/components/forms/students/Student";
 import QR from "@/components/QR/QR";
+// import SuccessModal from "@/components/modals/success/SuccessModal";
 
 // Data for InfoBox cards
 const infoBoxData = [
@@ -57,13 +58,14 @@ const Billings = () => {
   };
 
   return (
-    <Box>
+    <Box bg="white">
       {/* Conditionally render modal */}
       {modalState.open && (
         <ModalsLayout setOpen={handleCloseModal} flow={modalState.flow}>
           {renderModalContent(modalState.flow, setFlow)} {/* Pass setFlow */}
         </ModalsLayout>
       )}
+      {/* <SuccessModal/> */}
 
       <Box py={8}>
         {/* Header */}
@@ -77,10 +79,13 @@ const Billings = () => {
             Billings
           </Text>
           <Flex gap={4}>
-            <Button size={{sm:"sm",md:"md"}} onClick={() => handleOpenModal(1)}>
+            <Button
+              size={{ sm: "sm", md: "md" }}
+              onClick={() => handleOpenModal(1)}
+            >
               ADD STUDENTS
             </Button>
-            <Button size={{sm:"sm",md:"md"}} >BULK UPLOAD</Button>
+            <Button size={{ sm: "sm", md: "md" }}>BULK UPLOAD</Button>
           </Flex>
         </Flex>
 

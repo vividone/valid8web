@@ -1,63 +1,62 @@
-import { defineStyleConfig } from '@chakra-ui/react'
+import { defineStyleConfig } from '@chakra-ui/react';
 
 export const ButtonStyles = defineStyleConfig({
   baseStyle: {
     fontWeight: 'bold',
-    fontFamily: "Nunito",
+    fontFamily: 'Nunito',
     textTransform: 'uppercase',
-    borderRadius: "10px",
-    bg: "#3C5DD2",
-
+    borderRadius: '10px',
+    bg: '#3C5DD2',
   },
   sizes: {
     sm: {
-      fontSize: '14px',
-      width: "200px",
-      height: "41px",
+      fontSize: ['12px', '12px', '14px'], // Responsive font size
+      Width: ['80px', '100px', '180px'], // Responsive min-width
+      Height: ['40px', '40px', '50px'],  // Responsive min-height
       paddingX: 4,
-      paddingY: 2,
-      borderRadius: "5px",
+      paddingY: 5,
+      borderRadius: '5px',
     },
     md: {
-      fontSize: 'md',
-      width: "212px",
-      height: "51px",
+      fontSize: ['14px', '16px', 'md'],
+      width: ['160px', '180px', '212px'], // Responsive width
+      height: ['40px', '50px', '51px'],   // Responsive height
       paddingX: 6,
       paddingY: 4,
     },
     lg: {
       fontSize: 'lg',
-      width: "212px",
+      width: '212px',
       paddingX: 6,
       paddingY: 4,
     },
   },
   variants: {
     auth: {
-      bg: "#3C5DD2",
-      fontWeight: "700",
-      color: "white",
+      bg: '#3C5DD2',
+      fontWeight: '700',
+      color: 'white',
     },
     solid: {
-      bg: "#3C5DD2",
-      fontWeight: "700",
-      color: "white",
+      bg: '#3C5DD2',
+      fontWeight: '700',
+      color: 'white',
       _hover: {
-        bg: "#3C5DD2",
-        scale: "1.5"
-      }
+        bg: '#3C5DD2',
+        transform: 'scale(1.05)', // Slight scale effect
+      },
     },
     ghost: {
       px: 12,
-      py:8,
-      bg: "#3C5DD233",
-      color: "#3C5DD2",
-      fontWeight: "700",
+      py: 8,
+      bg: '#3C5DD233',
+      color: '#3C5DD2',
+      fontWeight: '700',
       _hover: {
-        scale: "1.5",
-        bg: "#3C5DD2",
-        color: "white"
-      }
+        transform: 'scale(1.05)', // Hover scale effect
+        bg: '#3C5DD2',
+        color: 'white',
+      },
     },
   },
 });
