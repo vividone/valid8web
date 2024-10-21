@@ -12,7 +12,11 @@ import {
   Text,
   TableContainer,
 } from "@chakra-ui/react";
-import { EyeIcon, DeleteIcon, EditIcon } from "../icons/icons";
+import { 
+  EyeIcon, 
+  // DeleteIcon, 
+  // EditIcon 
+} from "../icons/icons";
 
 type StudentData = {
   Student: string;

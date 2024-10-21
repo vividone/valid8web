@@ -73,7 +73,7 @@ const SideBarNavLinks = ({
             />
             <Text
               fontWeight={500}
-              fontSize={{ base: "12px", sm: "16px", md: "20px" }}
+              fontSize={{ base: "14px", sm: "16px", md: "20px" }}
             >
               {item.Name}
             </Text>
@@ -165,7 +165,7 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
               <Box
                 as="h2"
                 fontWeight={600}
-                fontSize={{ base: "18px", sm: "16px", md: "18px" }}
+                fontSize={{ base: "12px", sm: "16px", md: "18px" }}
               >
                 Covenant University
               </Box>
@@ -176,7 +176,7 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
           </HStack>
         )}
         <HStack
-          fontSize={{ base: "16px", sm: "14px", md: "16px" }}
+          fontSize={{ base: "14px", sm: "14px", md: "16px" }}
           color={"#8C8B92"}
           justify={"space-between"}
           mt={8}

@@ -40,6 +40,7 @@ const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
       return null;
   }
 };
+
 const titles = ["Add Student", "QR"];
 
 const Students = () => {
@@ -64,28 +65,40 @@ const Students = () => {
         <ModalsLayout
           flow={modalState.flow}
           setOpen={handleCloseModal}
-          title={titles[modalState.flow]}
+          title={titles[modalState.flow - 1]} // Adjusted to pick the correct title
         >
           {renderModalContent(modalState.flow, setFlow)} {/* Pass setFlow */}
         </ModalsLayout>
       )}
 
-      <Box py={8}>
+      <Box py={8} w="full">
         {/* Header */}
         <Flex
-          flexWrap={"wrap"}
+          flex={1}
           alignItems="center"
           justify="space-between"
           flexDirection={{ sm: "column", md: "row" }}
+          flexWrap={{ base: "wrap", sm: "wrap", md: "nowrap" }}
         >
           <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
-            Student
+            Students
           </Text>
-          <Flex gap={4}>
-            <Button size={{sm:"sm",md:"md"}} onClick={() => handleOpenModal(1)}>
-              ADD STUDENTS
-            </Button>
-            <Button size={{sm:"sm",md:"md"}} >BULK UPLOAD</Button>
+          <Flex gap={4} flex={3}>
+            <Flex
+              w={"90%"}
+              gap={{ sm: 2, md: 4 }}
+              ml={{ sm: 0, md: "auto" }}
+              justify={"flex-end"}
+            >
+              <Button
+                mr={4}
+                size={{ base: "sm", md: "md" }} // Responsive sizes based on screen size
+                onClick={() => handleOpenModal(1)}
+              >
+                ADD STUDENTS
+              </Button>
+              <Button size={{ base: "sm", md: "md" }}>BULK UPLOAD</Button>
+            </Flex>
           </Flex>
         </Flex>
 
