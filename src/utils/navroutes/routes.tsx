@@ -74,12 +74,12 @@ export const superAdmin = [
     },
     {
         Name: "Institution",
-        route: "/superadmin/Institution",
+        route: "/superadmin/Institutions",
         Icon: InstitutionIcon,
     },
     {
         Name: "Billings",
-        route: "/superadmin/Billings",
+        route: "/superadmin/billings",
         Icon:  BillersIcon,
     },
     {
@@ -89,7 +89,7 @@ export const superAdmin = [
     },
     {
         Name: "Settings",
-        route: "/superadmin/Settings",
+        route: "/superadmin/settings",
         Icon: SettingsIcon,
     },
 ];

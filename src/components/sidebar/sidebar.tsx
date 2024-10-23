@@ -15,9 +15,9 @@ import {
   useOutsideClick,
 } from "@chakra-ui/react";
 import {
-  adminMenue,
+  // adminMenue,
   // BusinessAdmin,
-  // superAdmin,
+  superAdmin,
 } from "@/utils/navroutes/routes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -137,8 +137,8 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
       </Flex>
 
       {/* Menu Sections */}
-      <SideBarNavLinks items={adminMenue} path={path} />
-      {/* {true && <SideBarNavLinks items={superAdmin} path={path} />} */}
+      {/* <SideBarNavLinks items={adminMenue} path={path} /> */}
+      {true && <SideBarNavLinks items={superAdmin} path={path} />}
       {/* {true&& <SideBarNavLinks items={BusinessAdmin} path={path} />} */}
 
       {/* Footer Section */}

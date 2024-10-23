@@ -1,42 +1,38 @@
 import React from "react";
 import {
-  Table,
-  Thead,
-  Tbody,
   Tr,
   Th,
   Td,
   Box,
   Icon,
-  HStack,
   Text,
+  Tbody,
+  Thead,
+  Table,
+  HStack,
   TableContainer,
 } from "@chakra-ui/react";
-import { 
-  EyeIcon, 
-  // DeleteIcon, 
-  // EditIcon 
-} from "../icons/icons";
+import { EyeIcon, EditIcon, DeleteIcon } from "../icons/icons";
 
 type StudentData = {
+  Action: string;
   Student: string;
   Department: string;
   Status: "Active" | "Inactive";
-  Action: string;
   [key: string]: string | string[] | undefined;
 };
 
 type LogsDataType = {
-  Verifier: string;
-  Details: string;
-  Result: "Valid" | "Invalid";
-  Timestamp: string[];
   Action: string;
+  Details: string;
+  Verifier: string;
+  Timestamp: string[];
+  Result: "Valid" | "Invalid";
 };
 
 type DynamicStudentTableProps = {
-  data?: StudentData[] | LogsDataType | any; // Explicit type for array of StudentData
   Action?: (flow: number) => void;
+  data?: StudentData[] | LogsDataType | any; // Explicit type for array of StudentData
 };
 
 const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
@@ -109,59 +105,97 @@ const DynamicStudentTable: React.FC<DynamicStudentTableProps> = ({
                 {headers.map((header: any, colIndex: any) => (
                   <React.Fragment key={colIndex}>
                     {header === "Status" ? (
-                      student[header] === "Active" ? (
-                        <Td
-                          fontWeight={500}
-                          fontSize={{ base: "14px", md: "16px" }} // Adjust font size for mobile
-                          textColor={"#7000FA"}
-                        >
-                          <Box
-                            px={6}
-                            py={2}
-                            as="span"
-                            bg={"#7000FA14"}
-                            textAlign={"center"}
-                            borderRadius={"30px"}
-                          >
-                            Active
-                          </Box>
-                        </Td>
-                      ) : (
-                        <Td
-                          fontWeight={500}
-                          fontSize={{ base: "14px", md: "16px" }} // Adjust font size for mobile
-                          textColor={"#FF0000"}
-                        >
-                          <Box
-                            px={6}
-                            py={2}
-                            as="span"
-                            bg={"#FF000014"}
-                            textAlign={"center"}
-                            borderRadius={"30px"}
-                          >
-                            Inactive
-                          </Box>
-                        </Td>
-                      )
-                    ) : header === "Action" ? (
-                      <Td
-                        fontSize={{ base: "14px", md: "18px" }} // Adjust font size for mobile
-                        fontWeight={500}
-                        color={"#3C5DD2"}
-                        fontFamily={"Nunito,sans-serif"}
-                      >
-                        <HStack gap={2} cursor={"pointer"}>
-                          <Icon as={EyeIcon} />
-                          <Text
-                            fontSize={{ base: "14px", md: "16px" }} // Adjust font size for mobile
+                      <>
+                        {student[header] === "Active" ? (
+                          <Td
                             fontWeight={500}
-                            onClick={() => Action && Action(1)}
+                            fontSize={{ base: "14px", md: "16px" }} // Adjust font size for mobile
+                            textColor={"#7000FA"}
                           >
-                            VIEW
-                          </Text>
-                        </HStack>
-                      </Td>
+                            <Box
+                              px={7}
+                              py={2}
+                              as="span"
+                              bg={"#7000FA14"}
+                              textAlign={"center"}
+                              borderRadius={"30px"}
+                            >
+                              Active
+                            </Box>
+                          </Td>
+                        ) : (
+                          <Td
+                            fontWeight={500}
+                            fontSize={{ base: "14px", md: "16px" }} // Adjust font size for mobile
+                            textColor={"#FF0000"}
+                          >
+                            <Box
+                              px={6}
+                              py={2}
+                              as="span"
+                              bg={"#FF000014"}
+                              textAlign={"center"}
+                              borderRadius={"30px"}
+                            >
+                              Inactive
+                            </Box>
+                          </Td>
+                        )}
+                      </>
+                    ) : header === "Action" ? (
+                      <>
+                        {student[header] ? (
+                          <Td
+                            fontSize={{ base: "14px", md: "18px" }} // Adjust font size for mobile
+                            fontWeight={500}
+                            color={"#3C5DD2"}
+                            fontFamily={"Nunito,sans-serif"}
+                          >
+                            <HStack
+                              gap={2}
+                              cursor={"pointer"}
+                              // justify={"space-between"}
+                              
+                            >
+                              <Box mr={6}>
+                                <Icon
+                                  as={EditIcon}
+                                  width={"19px"}
+                                  height={"19px"}
+                                  color={"#002AFF"}
+                                />
+                              </Box>
+                              <Box>
+                                <Icon
+                                  as={DeleteIcon}
+                                  height={"19px"}
+                                  width={"19px"}
+                                  color={"#FF0000"}
+                                />
+                              </Box>
+                            </HStack>
+                          </Td>
+                          
+                        ) : (
+                          <Td
+                            fontSize={{ base: "14px", md: "18px" }} // Adjust font size for mobile
+                            fontWeight={500}
+                            color={"#3C5DD2"}
+                            fontFamily={"Nunito,sans-serif"}
+                          >
+                            <HStack gap={2} cursor={"pointer"}>
+                              <Icon as={EyeIcon} />
+                              <Text
+                                fontSize={{ base: "14px", md: "16px" }} // Adjust font size for mobile
+                                fontWeight={500}
+                                onClick={() => Action && Action(1)}
+                              >
+                                VIEW
+                              </Text>
+                            </HStack>
+                          </Td>
+                        )}
+                      </>
                     ) : header === "Result" ? (
                       <Td
                         fontSize={{ base: "14px", md: "18px" }} // Adjust font size for mobile
