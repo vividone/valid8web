@@ -15,25 +15,30 @@ const InstitutionDetailsForm = ({
   setFlow,
   ...props
 }: {
-  flow: number;
-  setFlow?: (flow: number) => void;
   props?: any;
+  flow: number;
+  setFlow?: (flow: number) => any;
 }) => {
   console.log("student form =>", flow);
   return (
     <Box
       py={4}
-      px={8}
+      w={"100%"}
       fontWeight={400}
+      px={{ base: 2, sm: 1, md: 8 }}
       fontFamily={"Nunito,sans-serif"}
       fontSize={{ base: "20px", sm: "18px", md: "20px" }}
-      w={"100%"}
       {...props}
     >
       <Text fontWeight={600} fontSize={"24px"} fontFamily={"Nunito,sans-serif"}>
         Institution Details
       </Text>
-      <Flex px={12} gap={4} my={6} flexDirection={"column"}>
+      <Flex
+        my={6}
+        gap={4}
+        flexDirection={"column"}
+        px={{ base: 2, sm: 1, md: 12 }}
+      >
         <FormControl id="first-name" mb={4}>
           <FormLabel
             fontWeight={600}
@@ -51,17 +56,17 @@ const InstitutionDetailsForm = ({
           >
             Email Address
           </FormLabel>
-          <Input placeholder="example@gmail.com" />
+          <Input type="text" placeholder="example@gmail.com" />
         </FormControl>
+ 
         <FormControl id="first-name" mb={4}>
           <FormLabel
-         
             fontWeight={600}
             fontSize={{ base: "20px", sm: "18px", md: "20px" }}
           >
             School Address
           </FormLabel>
-          <Input placeholder="PMB 64, REMO, OGUN STATE" />
+          <Input type="text" placeholder="PMB 64, REMO, OGUN STATE" />
         </FormControl>
       </Flex>
       <Center>

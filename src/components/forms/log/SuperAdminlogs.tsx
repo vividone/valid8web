@@ -13,14 +13,16 @@ const SuperAdminLogForm = ({
   return (
     <Box
       py={4}
-      px={8}
       fontWeight={400}
-      //   bg={"green"}
+      px={{ base: 0, md: 8 }}
       fontFamily={"Nunito,sans-serif"}
       fontSize={{ base: "20px", sm: "18px", md: "20px" }}
       {...props}
     >
-      <Flex gap={4} >
+      <Flex
+        gap={{ base: 0, md: 4 }}
+        flexDirection={{ base: "column", sm: "column", md: "row" }}
+      >
         <FormControl id="first-name" mb={4}>
           <FormLabel
             fontWeight={600}
@@ -50,7 +52,11 @@ const SuperAdminLogForm = ({
         </FormControl>
       </Flex>
 
-      <Flex gap={4} mb={4}>
+      <Flex
+        mt={{ base: 4, md: 0 }}
+        gap={{ base: 4, md: 4 }}
+        flexDirection={{ base: "column", sm: "column", md: "row" }}
+      >
         <FormControl id="email" flex={1}>
           <FormLabel
             fontWeight={600}
@@ -64,7 +70,6 @@ const SuperAdminLogForm = ({
             placeholder=""
             value={"PMB 64, REMO, OGUN STATE"}
           />
-
         </FormControl>
 
         <FormControl id="Admin" flex={1}>
@@ -83,7 +88,11 @@ const SuperAdminLogForm = ({
         </FormControl>
       </Flex>
 
-      <Flex gap={4}>
+      <Flex
+        mt={4}
+        gap={4}
+        flexDirection={{ base: "column", sm: "column", md: "row" }}
+      >
         <FormControl id="Successful Verification" flex={1}>
           <FormLabel
             fontWeight={600}

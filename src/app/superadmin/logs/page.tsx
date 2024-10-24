@@ -32,28 +32,28 @@ const studentsData: any = [
   {
     Verifiers: ["Covenant University", "info@convenantuni.com"],
     Type: "Education",
-    Admin: "Active",
+    Admin: "Zainab Babalola",
     Validation: "500",
     Action: false,
   },
   {
     Verifiers: ["Fortbridge", "info@convenantuni.com"],
     Type: "Business",
-    Admin: "Active",
+    Admin: "David Oyeleye",
     Validation: "70",
     Action: false,
   },
   {
     Verifiers: ["WanderlustTravels", "info@convenantuni.com"],
     Type: "Business",
-    Admin: "Active",
+    Admin: "June Jayson",
     Validation: "100",
     Action: false,
   },
   {
     Verifiers: ["WanderlustTravels", "info@convenantuni.com"],
     Type: "Business",
-    Admin: "Active",
+    Admin: "Dare Collins",
     Validation: "800",
     Action: false,
   },
@@ -89,7 +89,7 @@ const Logs = () => {
       {modalState.open && (
         <ModalsLayout
           mt={6}
-          pt={6}
+          pt={16}
           boxShadow="none"
           boxStyles={true}
           borderRadius="md"

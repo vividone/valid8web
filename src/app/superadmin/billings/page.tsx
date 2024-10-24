@@ -46,7 +46,7 @@ const Billings = () => {
       
       {/* Conditionally render modal */}
       {modalState.open && (
-        <ModalsLayout setOpen={handleCloseModal} flow={modalState.flow}>
+        <ModalsLayout setOpen={handleCloseModal} flow={modalState.flow} >
           {renderModalContent(modalState.flow, setFlow)} {/* Pass setFlow */}
         </ModalsLayout>
       )}

@@ -1,5 +1,6 @@
 
 
+import { border } from "@chakra-ui/react";
 import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 
 
@@ -11,7 +12,7 @@ export const inputStyles = {
           fontWeight: 400,
           borderRadius: "8px",
           border: "2px solid #E7E7E7",
-          color:"blackAlpha.900"
+          color: "blackAlpha.900"
         },
       },
       sizes: {
@@ -54,30 +55,36 @@ export const inputStyles = {
             },
             height: "54px",
           },
-          
+
         }),
         successful: (props: StyleFunctionProps) => ({
           field: {
-            fontWeight:500,
-            bg: "#E3FFFA",  
-            color: mode("green.300", "white")(props),  
+            bg: "#E3FFFA",
+            height: "54px",
+            fontWeight: 500,
+            border: "1px solid #E7E7E7",
+            color: mode("green.300", "white")(props),
           },
         }),
         failed: (props: StyleFunctionProps) => ({
           field: {
-            bg: "#FF000014",  
-            color: "#FF0000", 
-            fontWeight:500
+            height: "54px",
+            bg: "#FF000014",
+            color: "#FF0000",
+            fontWeight: 500,
+            border: "1px solid #E7E7E7",
           },
-          
+
         }),
         logInput: (props: StyleFunctionProps) => ({
           field: {
-            bg: "#EBEFFF",  
-            color: "#3C5DD2", 
-            fontWeight:500
+            height: "54px",
+            bg: "#EBEFFF",
+            color: "#3C5DD2",
+            fontWeight: 500,
+            border: "1px solid #E7E7E7",
           },
-          
+
         })
       },
     },
