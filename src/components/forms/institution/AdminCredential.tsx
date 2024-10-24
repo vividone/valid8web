@@ -14,18 +14,18 @@ import { CopyIcon } from "@/components/icons/icons";
 
 const AdminCrentialForm = ({
   flow,
-  //   setFlow,
+  setFlow,
   ...props
 }: {
   flow: number;
-  setFlow?: (flow: number) => void;
+  setFlow?: (flow: number) => any | any;
   props?: any;
 }) => {
   console.log("student form =>", flow);
   return (
     <Box
       py={4}
-      px={8}
+      px={{ base: 2, sm: 1, md: 8 }}
       w={"100%"}
       fontWeight={400}
       fontFamily={"Nunito,sans-serif"}
@@ -35,7 +35,12 @@ const AdminCrentialForm = ({
       <Text fontWeight={600} fontSize={"24px"} fontFamily={"Nunito,sans-serif"}>
         Admin Credentials
       </Text>
-      <Flex gap={4} mb={4} flexDirection={"column"}>
+      <Flex
+        gap={4}
+        my={4}
+        flexDirection={"column"}
+        px={{ base: 2, sm: 1, md: 12 }}
+      >
         <FormControl id="first-name" mb={4}>
           <FormLabel
             fontWeight={600}
@@ -95,11 +100,7 @@ const AdminCrentialForm = ({
         </FormControl>
       </Flex>
       <Center>
-        <Button
-          variant={"ghost"}
-          w={{ base: "100%", sm: "auto" }}
-          //   onClick={() => setFlow(2)}
-        >
+        <Button w={{ base: "100%", sm: "auto" }} onClick={() => setFlow(undefined)}>
           Complete setup
         </Button>
       </Center>

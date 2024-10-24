@@ -5,7 +5,7 @@ import Table from "@/components/table/Table";
 import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
 import LogForm from "@/components/forms/log/log";
-
+import SuperAdminLogForm from "@/components/forms/log/SuperAdminlogs";
 // Data for InfoBox cards
 const infoBoxData = [
   {
@@ -28,10 +28,41 @@ const infoBoxData = [
   },
 ];
 
+const studentsData: any = [
+  {
+    Verifiers: ["Covenant University", "info@convenantuni.com"],
+    Type: "Education",
+    Admin: "Active",
+    Validation: "500",
+    Action: false,
+  },
+  {
+    Verifiers: ["Fortbridge", "info@convenantuni.com"],
+    Type: "Business",
+    Admin: "Active",
+    Validation: "70",
+    Action: false,
+  },
+  {
+    Verifiers: ["WanderlustTravels", "info@convenantuni.com"],
+    Type: "Business",
+    Admin: "Active",
+    Validation: "100",
+    Action: false,
+  },
+  {
+    Verifiers: ["WanderlustTravels", "info@convenantuni.com"],
+    Type: "Business",
+    Admin: "Active",
+    Validation: "800",
+    Action: false,
+  },
+];
+
 const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
   switch (flow) {
     case 1:
-      return <LogForm flow={flow} setFlow={setFlow} />;
+      return <SuperAdminLogForm flow={flow} setFlow={setFlow} />;
     default:
       return null;
   }
@@ -52,39 +83,8 @@ const Logs = () => {
     setModalState((prevState) => ({ ...prevState, flow: newFlow }));
   };
 
-  const LogsData = [
-    {
-      Verifier: "Samuel Oyedele",
-      Details: "NM213XXXX",
-      Result: "Valid",
-      Timestamp: ["10/05/2024", "02:10pm"],
-      Action: "",
-    },
-    {
-      Verifier: "Zainab Babalola",
-      Details: "RG458XXXX",
-      Result: "Invalid",
-      Timestamp: ["10/05/2024", "02:10pm"],
-      Action: "",
-    },
-    {
-      Verifier: "Tiwatope Shanu",
-      Details: "GD458XXXX",
-      Result: "Invalid",
-      Timestamp: ["22/04/2024", "02:10pm"],
-      Action: "",
-    },
-    {
-      Verifier: "Olaolu Jayson",
-      Details: "RG458XXXX",
-      Result: "Valid",
-      Timestamp: ["10/04/2024", "02:10pm"],
-      Action: "",
-    },
-  ];
-
   return (
-    <Box position={"relative"}>
+    <Box position={"relative"}         overflow={"hidden"}>
       {/* Conditionally render modal */}
       {modalState.open && (
         <ModalsLayout
@@ -102,7 +102,8 @@ const Logs = () => {
           counter={false}
           flow={modalState.flow}
           setOpen={handleCloseModal}
-          title="Samuel Oyedele"
+          title="Babcock University"
+
         >
           {renderModalContent(modalState.flow, setFlow)}
         </ModalsLayout>
@@ -135,7 +136,7 @@ const Logs = () => {
 
         {/* Table Section */}
         <Box mt={4} w="full">
-          <Table data={LogsData} Action={handleOpenModal} />
+          <Table data={studentsData} Action={handleOpenModal} />
         </Box>
       </Box>
     </Box>

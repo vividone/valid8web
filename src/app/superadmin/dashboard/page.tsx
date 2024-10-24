@@ -64,7 +64,7 @@ const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
     case 1:
       return <InstitutionDetailsForm flow={flow} setFlow={setFlow} />;
     case 2:
-      return <AdminCrentialForm flow={flow} />;
+      return <AdminCrentialForm flow={flow} setFlow={setFlow}/>;
     default:
       return null;
   }
@@ -85,7 +85,7 @@ const SuperAdminDashboard = () => {
     setModalState((prevState) => ({ ...prevState, flow: newFlow }));
   };
 
-  const titles = ["Add Student", "QR Code"];
+  const titles = ["Setup Institution", "Setup Institution"];
 
   return (
     <Box>

@@ -54,7 +54,31 @@ export const inputStyles = {
             },
             height: "54px",
           },
+          
         }),
+        successful: (props: StyleFunctionProps) => ({
+          field: {
+            fontWeight:500,
+            bg: "#E3FFFA",  
+            color: mode("green.300", "white")(props),  
+          },
+        }),
+        failed: (props: StyleFunctionProps) => ({
+          field: {
+            bg: "#FF000014",  
+            color: "#FF0000", 
+            fontWeight:500
+          },
+          
+        }),
+        logInput: (props: StyleFunctionProps) => ({
+          field: {
+            bg: "#EBEFFF",  
+            color: "#3C5DD2", 
+            fontWeight:500
+          },
+          
+        })
       },
     },
   },

@@ -18,6 +18,7 @@ interface ModalsLayoutProps {
   formBoxStyles?: boolean;
   bg?: string;
   width?: string;
+  height?:string;
   border?: string;
 }
 
@@ -38,6 +39,7 @@ const ModalsLayout = ({
   boxShadow = "xl",
   pt,
   mt,
+  height="100%",
   boxStyles = false,
   formBoxStyles = true,
   ...props
@@ -49,18 +51,19 @@ const ModalsLayout = ({
       left={0}
       zIndex={100}
       w="100%"
-      minH="100%"
+      minH={height}
       bg="white"
       borderRadius={borderRadius}
       position="absolute"
       fontStyle="Nunito"
       p={Mainpadding || { base: 8, sm: 2, md: 10 }}
       sx={boxStyles ? defaultBoxStyles : undefined}
-      boxShadow={boxShadow}
+
     >
       <Flex
         pt={pt}
         mx="auto"
+      
         alignItems="center"
         justifyContent="space-between"
         w={{ base: "40%", sm: "90%", md: "80%" }}
@@ -92,6 +95,7 @@ const ModalsLayout = ({
         boxShadow={boxShadow}
         width={{ sm: "90%", md: "65%" }}
         {...props}
+   
       >
         {children}
       </Box>
