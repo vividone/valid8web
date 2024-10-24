@@ -14,18 +14,18 @@ import {
 import { CopyIcon } from "@/components/icons/icons";
 
 const VerifiersForm = ({
-  flow,
-  setFlow,
+  // flow,
+  // setFlow,
 }: {
   flow: number;
   setFlow: (flow: number) => void;
 }) => {
-  console.log("student form =>", flow);
+
   return (
     <Box
-      py={4}
-      px={8}
       fontWeight={400}
+      py={{ base: 4, md: 8 }}
+      px={{ base: 2, sm: 1, md: 20 }}
       fontFamily={"Nunito,sans-serif"}
       fontSize={{ base: "20px", sm: "18px", md: "20px" }}
     >
@@ -66,7 +66,7 @@ const VerifiersForm = ({
           </FormLabel>
           <Input placeholder="Design" />
         </FormControl>
-        <FormControl id="first-name" mb={8}>
+        <FormControl id="password" mb={8}>
           <Flex justifyContent={"space-between"}>
             <FormLabel
               fontWeight={600}
@@ -74,11 +74,23 @@ const VerifiersForm = ({
             >
               Password
             </FormLabel>
-            <Flex color={"#3C5DD2"} gap={2} cursor={"pointer"}>
-              <Text fontWeight={"normal"} fontSize={"16px"}>
+            <Flex
+              gap={2}
+              color={"#3C5DD2"}
+              cursor={"pointer"}
+              mt={{ base: 1, md: 0 }}
+            >
+              <Text
+                fontWeight={"normal"}
+                fontSize={{ base: "14px", sm: "14px", md: "16px" }}
+              >
                 GENERATE PASSWORD
               </Text>
-              <Icon as={CopyIcon} width={"24px"} height={"24px"} />
+              <Icon
+                as={CopyIcon}
+                width={{ base: "18px", md: "24px" }}
+                height={{ base: "18px", md: "24px" }}
+              />
             </Flex>
           </Flex>
           <Input placeholder="" type="password" />
@@ -86,9 +98,7 @@ const VerifiersForm = ({
       </VStack>
 
       <Center mt={2}>
-        <Button variant={"ghost"} onClick={() => setFlow(2)}>
-          Complete setup
-        </Button>
+        <Button cursor={"not-allowed"}>Complete setup</Button>
       </Center>
     </Box>
   );

@@ -40,27 +40,27 @@ export const adminMenue = [
 export const BusinessAdmin = [
     {
         Name: "Dashboard",
-        route: `/businessadmin/dashboard`,
+        route: `/bussinessadmin/dashboard`,
         Icon: DashboardIcon,
     },
     {
         Name: "Staff",
-        route: "/businessadmin/Staff",
+        route: "/bussinessadmin/staff",
         Icon: StaffIcon,
     },
     {
         Name: "Verifiers",
-        route: "/businessadmin/verifiers",
+        route: "/bussinessadmin/verifiers",
         Icon: VerifierIcon,
     },
     {
         Name: "Billings",
-        route: "/businessadmin/Billings",
+        route: "/bussinessadmin/billings",
         Icon:  BillersIcon,
     },
     {
         Name: "Logs",
-        route: "/businessadmin/logs",
+        route: "/bussinessadmin/logs",
         Icon: LogsIcon,
     },
 ];
@@ -74,12 +74,12 @@ export const superAdmin = [
     },
     {
         Name: "Institution",
-        route: "/superadmin/Institution",
+        route: "/superadmin/Institutions",
         Icon: InstitutionIcon,
     },
     {
         Name: "Billings",
-        route: "/superadmin/Billings",
+        route: "/superadmin/billings",
         Icon:  BillersIcon,
     },
     {
@@ -89,7 +89,7 @@ export const superAdmin = [
     },
     {
         Name: "Settings",
-        route: "/superadmin/Settings",
+        route: "/superadmin/settings",
         Icon: SettingsIcon,
     },
 ];

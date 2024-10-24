@@ -28,6 +28,7 @@ const infoBoxData = [
   },
 ];
 
+// Helper function to render modal content based on flow state
 const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
   switch (flow) {
     case 1:
@@ -37,7 +38,7 @@ const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
   }
 };
 
-const Students = () => {
+const Verifiers = () => {
   const [modalState, setModalState] = useState({ open: false, flow: 0 });
 
   const handleOpenModal = (flow: number) => {
@@ -62,26 +63,38 @@ const Students = () => {
           counter={false}
           title="Verifiers"
         >
-          {renderModalContent(modalState.flow, setFlow)} {/* Pass setFlow */}
+          {renderModalContent(modalState.flow, setFlow)}
         </ModalsLayout>
       )}
 
-      <Box py={8}>
+      <Box py={8} w="full">
         {/* Header */}
         <Flex
-          flexWrap={"wrap"}
+          flex={1}
           alignItems="center"
           justify="space-between"
           flexDirection={{ sm: "column", md: "row" }}
+          flexWrap={{ base: "wrap", sm: "wrap", md: "nowrap" }}
         >
           <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
             Verifiers
           </Text>
-          <Flex gap={4}>
-            <Button size={{sm:"sm",md:"md"}} onClick={() => handleOpenModal(1)}>
-              ADD VERIFIER
-            </Button>
-            <Button size={{sm:"sm",md:"md"}} >BULK UPLOAD</Button>
+          <Flex gap={4} flex={3}>
+            <Flex
+              w={"90%"}
+              gap={{ sm: 2, md: 4 }}
+              ml={{ sm: 0, md: "auto" }}
+              justify={"flex-end"}
+            >
+              <Button
+                mr={4}
+                size={{ base: "sm", md: "md" }} // Responsive sizes
+                onClick={() => handleOpenModal(1)}
+              >
+                ADD VERIFIER
+              </Button>
+              <Button size={{ base: "sm", md: "md" }}>BULK UPLOAD</Button>
+            </Flex>
           </Flex>
         </Flex>
 
@@ -107,4 +120,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default Verifiers;

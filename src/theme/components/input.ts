@@ -11,7 +11,7 @@ export const inputStyles = {
           fontWeight: 400,
           borderRadius: "8px",
           border: "2px solid #E7E7E7",
-          color:"blackAlpha.900"
+          color: "blackAlpha.900"
         },
       },
       sizes: {
@@ -54,7 +54,36 @@ export const inputStyles = {
             },
             height: "54px",
           },
+
         }),
+        successful: (props: StyleFunctionProps) => ({
+          field: {
+            bg: "#E3FFFA",
+            height: "54px",
+            fontWeight: 500,
+            border: "1px solid #E7E7E7",
+            color: mode("green.300", "white")(props),
+          },
+        }),
+        failed: (props: StyleFunctionProps) => ({
+          field: {
+            height: "54px",
+            bg: "#FF000014",
+            color: mode("#FF0000","#FF0000")(props),
+            fontWeight: 500,
+            border: "1px solid #E7E7E7",
+          },
+
+        }),
+        logInput: (props: StyleFunctionProps) => ({
+          field: {
+            bg: "#EBEFFF",
+            height: "54px",
+            fontWeight: 500,
+            border: "1px solid #E7E7E7",
+            color: mode("#3C5DD2","#3C5DD2")(props),
+          },
+        })
       },
     },
   },

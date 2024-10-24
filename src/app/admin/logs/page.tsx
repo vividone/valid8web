@@ -84,8 +84,7 @@ const Logs = () => {
   ];
 
   return (
-    <Box position={"relative"} w="full">
-
+    <Box position={"relative"} w="full" overflowY={"hidden"}>
       {/* Conditionally render modal */}
       {modalState.open && (
         <ModalsLayout
@@ -110,7 +109,6 @@ const Logs = () => {
       )}
 
       <Box py={8}>
-
         {/* Header */}
         <Flex
           alignItems="center"
@@ -137,7 +135,9 @@ const Logs = () => {
         </Flex>
 
         {/* Table Section */}
-        <Box mt={4} overflowX="auto"> {/* Allow scrolling for mobile */}
+        <Box mt={4} overflowX="auto">
+          {" "}
+          {/* Allow scrolling for mobile */}
           <Table data={LogsData} Action={handleOpenModal} />
         </Box>
       </Box>

@@ -81,10 +81,10 @@ const AdminDashboard = () => {
             Dashboard
           </Text>
           <Flex gap={4}>
-            <Button size="md" onClick={() => handleOpenModal(1)}>
+            <Button size={{ sm: "sm", md: "md" }} onClick={() => handleOpenModal(1)}>
               ADD STAFF
             </Button>
-            <Button size="md">BULK UPLOAD</Button>
+            <Button size={{ sm: "sm", md: "md" }}>BULK UPLOAD</Button>
           </Flex>
         </Flex>
 

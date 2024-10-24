@@ -29,12 +29,42 @@ const infoBoxData = [
   },
 ];
 
+const studentsData: any = [
+  {
+    Institutions: ["Covenant University", "info@convenantuni.com"],
+    Type: "Education",
+    Status: "Active",
+    Users: "500",
+    Action: true,
+  },
+  {
+    Institutions: ["Fortbridge", "info@convenantuni.com"],
+    Type: "Business",
+    Status: "Active",
+    Users: "70",
+    Action: true,
+  },
+  {
+    Institutions: ["WanderlustTravels", "info@convenantuni.com"],
+    Type: "Business",
+    Status: "Active",
+    Users: "100",
+    Action: true,
+  },
+  {
+    Institutions: ["WanderlustTravels", "info@convenantuni.com"],
+    Type: "Business",
+    Status: "Active",
+    Users: "800",
+    Action: true,
+  },
+];
 const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
   switch (flow) {
     case 1:
       return <InstitutionDetailsForm flow={flow} setFlow={setFlow} />;
     case 2:
-      return <AdminCrentialForm flow={flow} />;
+      return <AdminCrentialForm flow={flow} setFlow={setFlow}/>;
     default:
       return null;
   }
@@ -55,7 +85,7 @@ const SuperAdminDashboard = () => {
     setModalState((prevState) => ({ ...prevState, flow: newFlow }));
   };
 
-  const titles = ["Add Student", "QR Code"];
+  const titles = ["Setup Institution", "Setup Institution"];
 
   return (
     <Box>
@@ -106,7 +136,7 @@ const SuperAdminDashboard = () => {
 
         {/* Table Section */}
         <Box mt={4}>
-          <Table />
+          <Table data={studentsData}/>
         </Box>
       </Box>
     </Box>

@@ -29,6 +29,38 @@ const infoBoxData = [
   },
 ];
 
+
+const studentsData: any = [
+  {
+    Institutions: ["Covenant University", "info@convenantuni.com"],
+    Type: "Education",
+    Status: "Active",
+    Users: "500",
+    Action: true,
+  },
+  {
+    Institutions: ["Fortbridge", "info@convenantuni.com"],
+    Type: "Business",
+    Status: "Active",
+    Users: "70",
+    Action: true,
+  },
+  {
+    Institutions: ["WanderlustTravels", "info@convenantuni.com"],
+    Type: "Business",
+    Status: "Active",
+    Users: "100",
+    Action: true,
+  },
+  {
+    Institutions: ["WanderlustTravels", "info@convenantuni.com"],
+    Type: "Business",
+    Status: "Active",
+    Users: "800",
+    Action: true,
+  },
+];
+
 const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
   switch (flow) {
     case 1:
@@ -78,7 +110,7 @@ const Institution = () => {
           flexDirection={{ sm: "column", md: "row" }}
         >
           <Text fontWeight="bold" fontSize={{ base: "20px", md: "24px" }}>
-            Dashboard
+            Institutions
           </Text>
           <Flex gap={4}>
             <Button size="md" onClick={() => handleOpenModal(1)}>
@@ -102,7 +134,7 @@ const Institution = () => {
 
         {/* Table Section */}
         <Box mt={4}>
-          <Table />
+          <Table data={studentsData}/>
         </Box>
       </Box>
     </Box>

@@ -16,8 +16,8 @@ import {
 } from "@chakra-ui/react";
 import {
   adminMenue,
-  BusinessAdmin,
-  superAdmin,
+  // BusinessAdmin,
+  // superAdmin,
 } from "@/utils/navroutes/routes";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -73,7 +73,7 @@ const SideBarNavLinks = ({
             />
             <Text
               fontWeight={500}
-              fontSize={{ base: "12px", sm: "16px", md: "20px" }}
+              fontSize={{ base: "14px", sm: "16px", md: "20px" }}
             >
               {item.Name}
             </Text>
@@ -99,7 +99,7 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
       h="100%"
       top={0}
       left={0}
-      zIndex={{ base: 100, md: "auto" }}
+      zIndex={{ base: 990, md: 0 }}
       bg="white"
       boxShadow={"xl"}
       color="black"
@@ -138,8 +138,8 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
 
       {/* Menu Sections */}
       <SideBarNavLinks items={adminMenue} path={path} />
-      {false && <SideBarNavLinks items={superAdmin} path={path} />}
-      {false && <SideBarNavLinks items={BusinessAdmin} path={path} />}
+      {/* {true && <SideBarNavLinks items={superAdmin} path={path} />} */}
+      {/* {true&& <SideBarNavLinks items={BusinessAdmin} path={path} />} */}
 
       {/* Footer Section */}
       <Box fontSize={{ sm: "18px", md: "20px" }} p={4} mt={"auto"}>
@@ -165,7 +165,7 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
               <Box
                 as="h2"
                 fontWeight={600}
-                fontSize={{ base: "20px", sm: "16px", md: "18px" }}
+                fontSize={{ base: "12px", sm: "16px", md: "18px" }}
               >
                 Covenant University
               </Box>
@@ -176,7 +176,7 @@ const SideBar = ({ open, setOpen }: SideBarProps) => {
           </HStack>
         )}
         <HStack
-          fontSize={{ base: "16px", sm: "14px", md: "16px" }}
+          fontSize={{ base: "14px", sm: "14px", md: "16px" }}
           color={"#8C8B92"}
           justify={"space-between"}
           mt={8}
