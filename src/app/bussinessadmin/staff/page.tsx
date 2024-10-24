@@ -42,7 +42,7 @@ const renderModalContent = (flow: number, setFlow: (val: number) => void) => {
 };
 const titles = ["Add Student", "QR"];
 
-const Students = () => {
+const Staff = () => {
   const [modalState, setModalState] = useState({ open: false, flow: 0 });
 
   const handleOpenModal = (flow: number) => {
@@ -114,4 +114,4 @@ const Students = () => {
   );
 };
 
-export default Students;
+export default Staff;

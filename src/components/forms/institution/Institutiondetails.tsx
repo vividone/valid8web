@@ -17,7 +17,7 @@ const InstitutionDetailsForm = ({
 }: {
   props?: any;
   flow: number;
-  setFlow?: (flow: number) => any;
+  setFlow: (flow: number) => any;
 }) => {
   console.log("student form =>", flow);
   return (
