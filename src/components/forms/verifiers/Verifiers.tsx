@@ -14,13 +14,13 @@ import {
 import { CopyIcon } from "@/components/icons/icons";
 
 const VerifiersForm = ({
-  flow,
-  setFlow,
+  // flow,
+  // setFlow,
 }: {
   flow: number;
   setFlow: (flow: number) => void;
 }) => {
-  console.log("student form =>", flow);
+
   return (
     <Box
       fontWeight={400}

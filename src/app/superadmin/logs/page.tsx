@@ -4,7 +4,6 @@ import { Flex, Text, Box } from "@chakra-ui/react";
 import Table from "@/components/table/Table";
 import { InfoBox } from "@/components/modals/CustomComponents";
 import ModalsLayout from "@/components/modals/modalsLayout";
-import LogForm from "@/components/forms/log/log";
 import SuperAdminLogForm from "@/components/forms/log/SuperAdminlogs";
 // Data for InfoBox cards
 const infoBoxData = [

@@ -2,7 +2,7 @@ import React from "react";
 import { FormControl, FormLabel, Flex, Box, Input } from "@chakra-ui/react";
 
 const SuperAdminLogForm = ({
-  flow,
+  // flow,
   //   setFlow,
   ...props
 }: {
